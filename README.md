@@ -9,10 +9,10 @@ Files were already downloaded, and the decode file looks fine, so moving to Step
 # 5. Perform a renaming dry-run
    Run renameFQGZ.bash to view the original and new file names and create tsv files to store the original and new file naming conventions.
  
-# log into a compute node interactively so this goes faster
+log into a compute node interactively so this goes faster
 salloc
 
-# once you have the compute node, procede
+once you have the compute node, procede
 bash /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/fq_raw/renameFQGZ.bash Tzo-LCWGS-FullSeq-SequenceNameDecode.tsv 
 
 Dry run looks okay, so will proceed to renaming for real.
