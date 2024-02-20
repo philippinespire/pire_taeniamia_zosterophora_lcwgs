@@ -22,3 +22,9 @@ Dry run looks okay, so will proceed to renaming for real.
 bash /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/renameFQGZ_keeplane.bash Tzo-LCWGS-FullSeq-SequenceNameDecode.tsv rename
 
 #you will need to say y 2X
+
+# 7. Check quality of the data with fastqc
+
+Run fastqc and multiqc with the Multi_FASTQC.sh script 
+
+sbatch /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/Multi_FASTQC.sh "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/fq_raw" "fqc_raw_report" "fq.gz"
