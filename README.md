@@ -69,3 +69,56 @@ runCLUMPIFY_r1r2_array.bash is a bash script that executes several sbatch jobs t
 You will need to specify the number of nodes you wish to allocate your jobs to. The max # of nodes to use at once should not exceed the number of pairs of r1-r2 files to be processed. (Ex: If you have 3 pairs of r1-r2 files, you should only use 3 nodes at most.) If you have many sets of files (likely to occur if you are processing capture data), you might also limit the nodes to the current number of idle nodes to avoid waiting on the queue (run sinfo to find out # of nodes idle in the main partition)
 
 bash /archive/carpenterlab/pire/pire_fq_gz_processing/runCLUMPIFY_r1r2_array.bash fq_fp1 fq_fp1_clmp /scratch/kfitz012 40
+
+Generate metadata on deduplicated FASTQ files
+
+Once CLUMPIFY has finished running and there are no issues, run runMULTIQC.sbatch to get the MultiQC output.
+
+sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/Multi_FASTQC.sh "fq_fp1_clmp" "fqc_clmp_report"  "fq.gz"
+
+Results look good, duplication rate is low now
+
+# 10. Second trim
+
+Run runFASTP_2_cssl.sbatch script
+
+/home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/runFASTP_2_cssl.sbatch fq_fp1_clmp fq_fp1_clmp_fp2 33
+
+Modified script to a front trim of 30bp so that fastp would run.
+
+MultiQC output looks good, seems to have removed most duplication. GC content has decreased a little, but is still around 40%, which seems reasonable. 
+Potential issues:
+% duplication -
+Alb: 0-2%%, Contemp: 0-2%
+
+GC content -
+Alb: 38-45%, Contemp: 38-45%
+
+passing filter -
+Alb: 33-95%, Contemp: 75-98%
+
+% adapter -
+Alb: 3-45%, Contemp: 3-40%
+
+number of reads -
+Alb: 0.1-25 mil, Contemp: 0.1-50 mil
+
+Overall seems good to move onto decontamination.
+
+# 11. Decontamination
+
+Run runFQSCRN_6.bash script
+
+bash
+
+fqScrnPATH=/home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/runFQSCRN_6.bash
+
+indir=fq_fp1_clmp_fp2
+
+outdir=/scratch/kfitz012/fq_fp1_clmp_fp2_fqscrn
+
+nodes=12 #Wahab is saying that 12 nodes @ 40 threads per node is the max CPU per user
+
+bash $fqScrnPATH $indir $outdir $nodes
+
+
