@@ -107,18 +107,98 @@ Overall seems good to move onto decontamination.
 
 # 11. Decontamination
 
-Run runFQSCRN_6.bash script
+Run runFQSCRN_6.bash script (had to adjust script to run with 20 threads/node because otherwise only 12 jobs could run at a time)
 
 bash
 
-fqScrnPATH=/home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/runFQSCRN_6.bash
+fqScrnPATH=/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/runFQSCRN_6.bash
 
 indir=fq_fp1_clmp_fp2
 
 outdir=/scratch/kfitz012/fq_fp1_clmp_fp2_fqscrn
 
-nodes=12 #Wahab is saying that 12 nodes @ 40 threads per node is the max CPU per user
+nodes=24 #Wahab is saying that 24 nodes @ 20 threads per node is the max CPU per user
 
 bash $fqScrnPATH $indir $outdir $nodes
+
+
+MultiQC:
+
+sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/runMULTIQC.sbatch fq_fp1_clmp_fp2_fqscrn fastq_screen_report
+
+MultiQC output looks good. Contamination was low (<5% of reads) for both historical and contemporary samples.
+ 
+Potential issues:
+one hit, one genome, no ID -
+Alb: 95-97%, Contemp: 95-97%
+
+no one hit, one genome to any potential contaminators (bacteria, virus, human, etc) -
+Alb: 3-5%, Contemp: 3-5%
+
+Re-pair files 
+
+sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/runREPAIR.sbatch /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/fq_fp1_clmp_fp2_fqscrn/fq_fp1_clmp_fp2_fqscrn /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/fq_fp1_clmp_fp2_fqscrn_rprd 5
+
+Check that the files re-paired properly
+
+bash
+
+SCRIPT=/home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/validateFQPE.sbatch
+
+DIR=fq_fp1_clmp_fp2_fqscrn_rprd
+
+fqPATTERN="*fq.gz"
+
+sbatch $SCRIPT $DIR $fqPATTERN
+
+Output looks good. The only issue is 7 files did not have any reads, but this lines up with the earlier MultiQC outputs where some sequences did not have any reads other than the adapter.
+Since samples were sequenced across lanes, no individuals have been lost at this point.
+
+MultiQC with the re-paired files:
+
+#sbatch Multi_FASTQC.sh "<indir>" "<output report name>" "<file extension>"
+sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/Multi_FASTQC.sh "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/fq_fp1_clmp_fp2_fqscrn_rprd" "fqc_rprd_report" "fq.gz"
+
+MultiQC results look good. Duplication remains low and GC content seems appropriate for a fish species. Some reads are shorter than others but that is to be expected with historical DNA.
+ Sequence files are ready for mapping.
+
+Potential issues:
+% duplication -
+Alb: 0-4%, Contemp: 0-4%
+
+GC content -
+Alb: 36-43%, Contemp: 36-43%
+
+number of reads -
+Alb: 0.5-14 mil, Contemp: 0.5-15 mil
+
+
+# Moving to the pire_lcwgs_data_processing pipeline for mapping and down-stream analysis
+
+# 2 & 3 Get and curate the reference genome
+
+Using the same reference genome as used for Tzo CSSL work. From the Tzo CSSL README: Found the best genome by running wrangleData.R, sorted tibble by busco single copy complete,
+quast n50, and filtered by species in Rstudio. The best genome to map for Tzo is Tzo_scaffolds_TzC0402G_contam_R1R2_noIsolate.fasta in 
+/home/e1garcia/shotgun_PIRE/pire_ssl_data_processing/taeniamia_zosterophora/probe_design.
+
+Moving the reference genome to my working directory:
+
+mkdir refGenome
+cd refGenome
+cp /home/e1garcia/shotgun_PIRE/pire_ssl_data_processing/taeniamia_zosterophora/probe_design/Tzo_scaffolds_TzC0402G_contam_R1R2_noIsolate.fasta /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/refGenome
+
+#the destination reference fasta should be named as follows: reference.<assembly type>.<unique assembly info>.fasta
+#<assembly type> is `ssl` for denovo assembled shotgun library or `rad` for denovo assembled rad library
+#this naming is a little messy, but it makes the ref 100% tracable back to the source
+#it is critical not to use `_` in name of reference for compatibility with ddocent and freebayes
+
+mv Tzo_scaffolds_TzC0402G_contam_R1R2_noIsolate.fasta ./reference.ssl.Tzo-C-0402G-R1R2-contam-noisolate.fasta
+
+
+# 4 Map reads to reference genome 
+
+#sbatch mkBAMwgs.sbatch InFilePattern RefGenomeFile OutDir
+
+sbatch /archive/carpenterlab/pire/pire_lcwgs_data_processing/scripts/mkBAM.sbatch "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/fq_fp1_clmp_fp2_fqscrn_rprd/*.fq.gz" /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/refGenome/reference.ssl.Tzo-C-0402G-R1R2-contam-noisolate.fasta /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/mkBAM
 
 
