@@ -27,8 +27,8 @@ ref_path: "reference/reference.ssl.Tzo-C-0402G-R1R2-contam-noisolate.fasta"
 # 2) Relative paths (from the main snakemake directory) to metadata 
 # files with sample information.
 # Example files can be found in "config/"
-historical_samples: "config/tzo_historical_samples.txt" # leave empty ("") if not run for historical samples.
-modern_samples: "config/tzo_modern_samples.txt" # leave empty ("") if not run for modern samples. 
+historical_samples: "config/tzo_historical_samples_fromtsv.txt" # leave empty ("") if not run for historical samples.
+modern_samples: "config/tzo_modern_samples_fromtsv.txt" # leave empty ("") if not run for modern samples. 
 #################################################################
 #################################################################
 
@@ -169,11 +169,7 @@ historical_bam_mapDamage: True
 # List has to be left empty ([]) if mapDamage2 is not run.
 # Keep the list of sample names for the entire pipeline run 
 # if rescaled BAM files should be used in downstream analyses.
-historical_rescaled_samplenames: ["TzoABol008", "TzoABol009", "TzoABol010", "TzoABol020", "TzoABol023", "TzoABol026", "TzoABol030", "TzoABol034", "TzoABol036", "TzoABol038", "TzoABol043", "TzoABol044", "TzoABol045", "TzoABol047", "TzoABol050", "TzoABol052", "TzoABol053", "TzoABol054", "TzoABol055", "TzoABol056", "TzoABol057", "TzoABol058", "TzoABol059"
-"TzoABol060", "TzoABol061", "TzoABol062", "TzoABol065", "TzoABol066", "TzoABol067", "TzoABol068", "TzoABol069", "TzoABol072", "TzoABol073", "TzoABol075", "TzoABol076", "TzoABol077", "TzoABol078", "TzoABol079", "TzoABol080", "TzoABol081", "TzoABol082", "TzoABol083", "TzoABol084", "TzoABol085", "TzoABol086", "TzoABol087", "TzoABol091", "TzoABol092", "TzoAMta001",
-"TzoAMta002", "TzoAMta003", "TzoAMta004", "TzoAMta005", "TzoAMta006", "TzoAMta007", "TzoAMta008", "TzoAMta009", "TzoAMta010", "TzoAMta011", "TzoAMta012", "TzoAMta013", "TzoAMta014", "TzoAMta015", "TzoAMta016", "TzoAMta017", "TzoAMta018", "TzoAMta019", "TzoAMta020", "TzoAMta021", "TzoAMta022", "TzoAMta023", "TzoAMta024", "TzoAMta025", "TzoAMta026", "TzoAMta027",
-"TzoAMta028", "TzoAMta029", "TzoAMta030", "TzoAMta031", "TzoAMvi001","TzoAMvi002", "TzoAMvi003", "TzoAMvi004", "TzoAMvi005", "TzoAMvi006", "TzoAMvi007", "TzoAMvi008", "TzoAMvi009", "TzoAMvi010", "TzoAMvi011", "TzoAMvi012", "TzoAMvi013", "TzoAMvi014", "TzoAMvi015", "TzoAMvi016", "TzoAMvi017", "TzoAMvi018", "TzoAMvi019", "TzoAMvi020", "TzoAMvi021", "TzoAMvi022",
-"TzoAMvi023", "TzoAMvi024", "TzoAMvi025", "TzoAMvi026", "TzoAMvi027", "TzoAMvi028", "TzoAMvi029", "TzoAMvi030", "TzoAMvi031", "TzoAMvi032", "TzoAMvi033", "TzoAMvi034", "TzoAMvi035", "TzoAMvi036", "TzoAMvi037", "TzoAMvi038", "TzoAMvi039", "TzoAMvi040", "TzoAMvi041", "TzoAMvi042", "TzoAMvi043", "TzoAMvi044", "TzoAMvi045", "TzoAMvi046", "TzoAMvi047", "TzoAMvi048"]
+historical_rescaled_samplenames: ["TzoABol008", "TzoABol009", "TzoABol010", "TzoABol020", "TzoABol023", "TzoABol026", "TzoABol030", "TzoABol034", "TzoABol036", "TzoABol038", "TzoABol043", "TzoABol044", "TzoABol045", "TzoABol047", "TzoABol050", "TzoABol052", "TzoABol053", "TzoABol054", "TzoABol055", "TzoABol056", "TzoABol057", "TzoABol058", "TzoABol059", "TzoABol060", "TzoABol061", "TzoABol062", "TzoABol065", "TzoABol066", "TzoABol067", "TzoABol068", "TzoABol069", "TzoABol072", "TzoABol073", "TzoABol075", "TzoABol076", "TzoABol077", "TzoABol078", "TzoABol079", "TzoABol080", "TzoABol081", "TzoABol082", "TzoABol083", "TzoABol084", "TzoABol085", "TzoABol086", "TzoABol087", "TzoABol091", "TzoABol092", "TzoAMta001", "TzoAMta002", "TzoAMta003", "TzoAMta004", "TzoAMta005", "TzoAMta006", "TzoAMta007", "TzoAMta008", "TzoAMta009", "TzoAMta010", "TzoAMta011", "TzoAMta012", "TzoAMta013", "TzoAMta014", "TzoAMta015", "TzoAMta016", "TzoAMta017", "TzoAMta018", "TzoAMta019", "TzoAMta020", "TzoAMta021", "TzoAMta022", "TzoAMta023", "TzoAMta024", "TzoAMta025", "TzoAMta026", "TzoAMta027", "TzoAMta028", "TzoAMta029", "TzoAMta030", "TzoAMta031", "TzoAMvi001","TzoAMvi002", "TzoAMvi003", "TzoAMvi004", "TzoAMvi005", "TzoAMvi006", "TzoAMvi007", "TzoAMvi008", "TzoAMvi009", "TzoAMvi010", "TzoAMvi011", "TzoAMvi012", "TzoAMvi013", "TzoAMvi014", "TzoAMvi015", "TzoAMvi016", "TzoAMvi017", "TzoAMvi018", "TzoAMvi019", "TzoAMvi020", "TzoAMvi021", "TzoAMvi022", "TzoAMvi023", "TzoAMvi024", "TzoAMvi025", "TzoAMvi026", "TzoAMvi027", "TzoAMvi028", "TzoAMvi029", "TzoAMvi030", "TzoAMvi031", "TzoAMvi032", "TzoAMvi033", "TzoAMvi034", "TzoAMvi035", "TzoAMvi036", "TzoAMvi037", "TzoAMvi038", "TzoAMvi039", "TzoAMvi040", "TzoAMvi041", "TzoAMvi042", "TzoAMvi043", "TzoAMvi044", "TzoAMvi045", "TzoAMvi046", "TzoAMvi047", "TzoAMvi048"]
 #####
 
 
