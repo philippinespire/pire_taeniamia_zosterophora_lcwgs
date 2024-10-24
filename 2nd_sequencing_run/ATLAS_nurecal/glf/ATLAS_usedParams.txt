@@ -1,0 +1,5 @@
+RGInfo	TzoCMvi071.merged.rmdup.merged.realn_RGInfo.json
+bam	TzoCMvi071.merged.rmdup.merged.realn.bam
+logFile	TzoCMvi071_glf_log
+out	TzoCMvi071_glf
+task	GLF

@@ -1,0 +1,7 @@
+RGInfo	TzoCMvi071.merged.rmdup.merged.realn_RGInfo.json
+bam	TzoCMvi071.merged.rmdup.merged.realn.bam
+genomeWide	
+logFile	TzoCMvi071_log
+out	TzoCMvi071_theta
+prob	1,0.5,0.2,0.1,0.05,0.02,0.01
+task	theta

@@ -1,0 +1,634 @@
+                   ATLAS 0.92
+                  ------------
+
+     https://bitbucket.org/wegmannlab/atlas
+
+ Commit ae0738c40defcabfd3115a6442bfe8ab9a147454
+
+   - Estimating major and minor alles (task = majorMinor):
+      - Relevant citations:
+         - Skotte et al. (2012) Genetic Epidemiology
+      - Initializing random generator ... done with seed 1715276092993!
+      - Will estimate major / minor alleles using the MLE method with maxF 1e-07. (parameters method and maxF)
+      - Reading glf input names from file 'glf_0.1_5.txt'
+      - Opening 198 GLF files:
+         - Opening GLF 'TzoABol008_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol009_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol010_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol020_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol023_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol026_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol030_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol034_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol036_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol038_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol043_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol044_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol045_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol047_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol050_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol052_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol053_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol054_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol055_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol056_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol057_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol058_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol059_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol060_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol061_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol062_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol065_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol066_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol067_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol068_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol069_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol070_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol072_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol073_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol075_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol076_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol077_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol078_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol079_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol080_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol081_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol082_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol083_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol084_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol085_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol086_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol087_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol091_glf.glf.gz' ... done!
+         - Opening GLF 'TzoABol092_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta001_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta002_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta003_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta004_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta005_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta006_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta007_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta008_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta009_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta010_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta011_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta012_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta013_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta014_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta015_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta016_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta017_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta018_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta019_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta020_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta021_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta022_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta023_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta024_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta025_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta026_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta028_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta029_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta030_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMta031_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi003_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi005_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi015_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi017_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi019_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi021_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi031_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi039_glf.glf.gz' ... done!
+         - Opening GLF 'TzoAMvi041_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal001_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal004_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal005_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal006_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal007_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal009_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal010_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal012_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal013_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal014_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal015_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal016_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal017_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal018_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal020_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal021_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal022_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal023_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal025_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal026_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal029_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal030_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal031_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal032_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal033_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal034_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal035_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal036_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal037_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal038_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal040_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal044_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMal046_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta001_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta002_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta005_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta009_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta010_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta012_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta014_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta016_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta017_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta020_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta021_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta022_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta024_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta025_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta026_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta027_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta030_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta031_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta034_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta035_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta039_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta040_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta041_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta042_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta043_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta044_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta045_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta048_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta051_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta053_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta055_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta056_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta059_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta060_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta061_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta062_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta063_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMta064_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi006_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi007_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi011_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi012_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi013_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi015_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi016_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi018_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi020_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi029_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi030_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi031_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi038_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi041_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi045_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi046_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi047_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi048_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi049_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi051_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi052_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi057_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi063_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi064_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi065_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi066_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi067_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi068_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi069_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi075_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi076_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi077_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi079_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi082_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi083_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi087_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi089_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi090_glf.glf.gz' ... done!
+         - Opening GLF 'TzoCMvi091_glf.glf.gz' ... done!
+      - Will write raw likelihoods. (use phredLik to phred-scale)
+      - Will only print sites for which at least 1 samples have data. (parameter minSamplesWithData)
+      - Will filter on a minor allele frequency of 0.001. (parameter 'minMAF')
+      - Will stop at input position 0. (parameter 'limitSites')
+      - Will write output files with tag 'majorMinor_0.1_5'. (parameter 'out')
+      - Will deduce sample names from GLF file names. (use 'sampleNames' to provide alternative names)
+      - Running in parallel with a maximum of 40 threads (argument 'maxThreads')
+      - Parsing through glf files:
+         - Parsed 1000000 positions in 2 minutes 32 seconds.
+         - Parsed 2000000 positions in 4 minutes 34 seconds.
+         - Parsed 3000000 positions in 6 minutes 35 seconds.
+         - Parsed 4000000 positions in 8 minutes 44 seconds.
+         - Parsed 5000000 positions in 10 minutes 35 seconds.
+         - Parsed 6000000 positions in 12 minutes 35 seconds.
+         - Parsed 7000000 positions in 14 minutes 31 seconds.
+         - Parsed 8000000 positions in 16 minutes 20 seconds.
+         - Parsed 9000000 positions in 18 minutes 22 seconds.
+         - Parsed 10000000 positions in 20 minutes 8 seconds.
+         - Parsed 11000000 positions in 22 minutes 17 seconds.
+         - Parsed 12000000 positions in 24 minutes 10 seconds.
+         - Parsed 13000000 positions in 25 minutes 59 seconds.
+         - Parsed 14000000 positions in 28 minutes 0 seconds.
+         - Parsed 15000000 positions in 29 minutes 51 seconds.
+         - Parsed 16000000 positions in 31 minutes 37 seconds.
+         - Parsed 17000000 positions in 33 minutes 31 seconds.
+         - Parsed 18000000 positions in 35 minutes 33 seconds.
+         - Parsed 19000000 positions in 37 minutes 15 seconds.
+         - Parsed 20000000 positions in 39 minutes 4 seconds.
+         - Parsed 21000000 positions in 41 minutes 6 seconds.
+         - Parsed 22000000 positions in 43 minutes 2 seconds.
+         - Parsed 23000000 positions in 44 minutes 58 seconds.
+         - Parsed 24000000 positions in 46 minutes 54 seconds.
+         - Parsed 25000000 positions in 48 minutes 47 seconds.
+         - Parsed 26000000 positions in 50 minutes 43 seconds.
+         - Parsed 27000000 positions in 52 minutes 38 seconds.
+         - Parsed 28000000 positions in 54 minutes 27 seconds.
+         - Parsed 29000000 positions in 56 minutes 16 seconds.
+         - Parsed 30000000 positions in 58 minutes 16 seconds.
+         - Parsed 31000000 positions in 1 hour 0 minutes 5 seconds.
+         - Parsed 32000000 positions in 1 hour 1 minute 53 seconds.
+         - Parsed 33000000 positions in 1 hour 3 minutes 41 seconds.
+         - Parsed 34000000 positions in 1 hour 5 minutes 31 seconds.
+         - Parsed 35000000 positions in 1 hour 7 minutes 23 seconds.
+         - Parsed 36000000 positions in 1 hour 9 minutes 27 seconds.
+         - Parsed 37000000 positions in 1 hour 11 minutes 22 seconds.
+         - Parsed 38000000 positions in 1 hour 13 minutes 22 seconds.
+         - Parsed 39000000 positions in 1 hour 15 minutes 12 seconds.
+         - Parsed 40000000 positions in 1 hour 17 minutes 4 seconds.
+         - Parsed 41000000 positions in 1 hour 18 minutes 49 seconds.
+         - Parsed 42000000 positions in 1 hour 20 minutes 49 seconds.
+         - Parsed 43000000 positions in 1 hour 22 minutes 58 seconds.
+         - Parsed 44000000 positions in 1 hour 24 minutes 55 seconds.
+         - Parsed 45000000 positions in 1 hour 26 minutes 51 seconds.
+         - Parsed 46000000 positions in 1 hour 28 minutes 58 seconds.
+         - Parsed 47000000 positions in 1 hour 30 minutes 55 seconds.
+         - Parsed 48000000 positions in 1 hour 32 minutes 44 seconds.
+         - Parsed 49000000 positions in 1 hour 34 minutes 40 seconds.
+         - Parsed 50000000 positions in 1 hour 36 minutes 41 seconds.
+         - Parsed 51000000 positions in 1 hour 38 minutes 38 seconds.
+         - Parsed 52000000 positions in 1 hour 40 minutes 34 seconds.
+         - Parsed 53000000 positions in 1 hour 42 minutes 35 seconds.
+         - Parsed 54000000 positions in 1 hour 44 minutes 23 seconds.
+         - Parsed 55000000 positions in 1 hour 46 minutes 19 seconds.
+         - Parsed 56000000 positions in 1 hour 48 minutes 23 seconds.
+         - Parsed 57000000 positions in 1 hour 50 minutes 23 seconds.
+         - Parsed 58000000 positions in 1 hour 52 minutes 13 seconds.
+         - Parsed 59000000 positions in 1 hour 54 minutes 16 seconds.
+         - Parsed 60000000 positions in 1 hour 56 minutes 10 seconds.
+         - Parsed 61000000 positions in 1 hour 58 minutes 7 seconds.
+         - Parsed 62000000 positions in 2 hours 0 minutes 4 seconds.
+         - Parsed 63000000 positions in 2 hours 1 minute 53 seconds.
+         - Parsed 64000000 positions in 2 hours 4 minutes 3 seconds.
+         - Parsed 65000000 positions in 2 hours 6 minutes 12 seconds.
+         - Parsed 66000000 positions in 2 hours 7 minutes 58 seconds.
+         - Parsed 67000000 positions in 2 hours 9 minutes 49 seconds.
+         - Parsed 68000000 positions in 2 hours 11 minutes 40 seconds.
+         - Parsed 69000000 positions in 2 hours 13 minutes 35 seconds.
+         - Parsed 70000000 positions in 2 hours 15 minutes 37 seconds.
+         - Parsed 71000000 positions in 2 hours 17 minutes 36 seconds.
+         - Parsed 72000000 positions in 2 hours 19 minutes 25 seconds.
+         - Parsed 73000000 positions in 2 hours 21 minutes 21 seconds.
+         - Parsed 74000000 positions in 2 hours 23 minutes 17 seconds.
+         - Parsed 75000000 positions in 2 hours 25 minutes 21 seconds.
+         - Parsed 76000000 positions in 2 hours 27 minutes 27 seconds.
+         - Parsed 77000000 positions in 2 hours 29 minutes 27 seconds.
+         - Parsed 78000000 positions in 2 hours 31 minutes 22 seconds.
+         - Parsed 79000000 positions in 2 hours 33 minutes 22 seconds.
+         - Parsed 80000000 positions in 2 hours 35 minutes 29 seconds.
+         - Parsed 81000000 positions in 2 hours 37 minutes 39 seconds.
+         - Parsed 82000000 positions in 2 hours 39 minutes 34 seconds.
+         - Parsed 83000000 positions in 2 hours 41 minutes 30 seconds.
+         - Parsed 84000000 positions in 2 hours 43 minutes 30 seconds.
+         - Parsed 85000000 positions in 2 hours 45 minutes 31 seconds.
+         - Parsed 86000000 positions in 2 hours 47 minutes 21 seconds.
+         - Parsed 87000000 positions in 2 hours 49 minutes 26 seconds.
+         - Parsed 88000000 positions in 2 hours 51 minutes 28 seconds.
+         - Parsed 89000000 positions in 2 hours 53 minutes 25 seconds.
+         - Parsed 90000000 positions in 2 hours 55 minutes 33 seconds.
+         - Parsed 91000000 positions in 2 hours 57 minutes 22 seconds.
+         - Parsed 92000000 positions in 2 hours 59 minutes 11 seconds.
+         - Parsed 93000000 positions in 3 hours 1 minute 6 seconds.
+         - Parsed 94000000 positions in 3 hours 3 minutes 7 seconds.
+         - Parsed 95000000 positions in 3 hours 5 minutes 2 seconds.
+         - Parsed 96000000 positions in 3 hours 6 minutes 48 seconds.
+         - Parsed 97000000 positions in 3 hours 8 minutes 44 seconds.
+         - Parsed 98000000 positions in 3 hours 10 minutes 42 seconds.
+         - Parsed 99000000 positions in 3 hours 12 minutes 41 seconds.
+         - Parsed 100000000 positions in 3 hours 14 minutes 49 seconds.
+         - Parsed 101000000 positions in 3 hours 16 minutes 49 seconds.
+         - Parsed 102000000 positions in 3 hours 18 minutes 51 seconds.
+         - Parsed 103000000 positions in 3 hours 20 minutes 48 seconds.
+         - Parsed 104000000 positions in 3 hours 22 minutes 48 seconds.
+         - Parsed 105000000 positions in 3 hours 24 minutes 45 seconds.
+         - Parsed 106000000 positions in 3 hours 26 minutes 53 seconds.
+         - Parsed 107000000 positions in 3 hours 29 minutes 4 seconds.
+         - Parsed 108000000 positions in 3 hours 31 minutes 17 seconds.
+         - Parsed 109000000 positions in 3 hours 33 minutes 26 seconds.
+         - Parsed 110000000 positions in 3 hours 35 minutes 31 seconds.
+         - Parsed 111000000 positions in 3 hours 37 minutes 38 seconds.
+         - Parsed 112000000 positions in 3 hours 39 minutes 27 seconds.
+         - Parsed 113000000 positions in 3 hours 41 minutes 20 seconds.
+         - Parsed 114000000 positions in 3 hours 43 minutes 29 seconds.
+         - Parsed 115000000 positions in 3 hours 45 minutes 34 seconds.
+         - Parsed 116000000 positions in 3 hours 47 minutes 34 seconds.
+         - Parsed 117000000 positions in 3 hours 49 minutes 41 seconds.
+         - Parsed 118000000 positions in 3 hours 51 minutes 49 seconds.
+         - Parsed 119000000 positions in 3 hours 53 minutes 56 seconds.
+         - Parsed 120000000 positions in 3 hours 56 minutes 2 seconds.
+         - Parsed 121000000 positions in 3 hours 58 minutes 6 seconds.
+         - Parsed 122000000 positions in 4 hours 0 minutes 11 seconds.
+         - Parsed 123000000 positions in 4 hours 2 minutes 17 seconds.
+         - Parsed 124000000 positions in 4 hours 4 minutes 27 seconds.
+         - Parsed 125000000 positions in 4 hours 6 minutes 22 seconds.
+         - Parsed 126000000 positions in 4 hours 8 minutes 29 seconds.
+         - Parsed 127000000 positions in 4 hours 10 minutes 26 seconds.
+         - Parsed 128000000 positions in 4 hours 12 minutes 26 seconds.
+         - Parsed 129000000 positions in 4 hours 14 minutes 41 seconds.
+         - Parsed 130000000 positions in 4 hours 17 minutes 0 seconds.
+         - Parsed 131000000 positions in 4 hours 19 minutes 3 seconds.
+         - Parsed 132000000 positions in 4 hours 21 minutes 14 seconds.
+         - Parsed 133000000 positions in 4 hours 23 minutes 19 seconds.
+         - Parsed 134000000 positions in 4 hours 25 minutes 24 seconds.
+         - Parsed 135000000 positions in 4 hours 27 minutes 28 seconds.
+         - Parsed 136000000 positions in 4 hours 29 minutes 43 seconds.
+         - Parsed 137000000 positions in 4 hours 31 minutes 51 seconds.
+         - Parsed 138000000 positions in 4 hours 33 minutes 45 seconds.
+         - Parsed 139000000 positions in 4 hours 35 minutes 50 seconds.
+         - Parsed 140000000 positions in 4 hours 37 minutes 59 seconds.
+         - Parsed 141000000 positions in 4 hours 39 minutes 58 seconds.
+         - Parsed 142000000 positions in 4 hours 42 minutes 0 seconds.
+         - Parsed 143000000 positions in 4 hours 44 minutes 9 seconds.
+         - Parsed 144000000 positions in 4 hours 46 minutes 17 seconds.
+         - Parsed 145000000 positions in 4 hours 48 minutes 18 seconds.
+         - Parsed 146000000 positions in 4 hours 50 minutes 20 seconds.
+         - Parsed 147000000 positions in 4 hours 52 minutes 20 seconds.
+         - Parsed 148000000 positions in 4 hours 54 minutes 27 seconds.
+         - Parsed 149000000 positions in 4 hours 56 minutes 27 seconds.
+         - Parsed 150000000 positions in 4 hours 58 minutes 26 seconds.
+         - Parsed 151000000 positions in 5 hours 0 minutes 31 seconds.
+         - Parsed 152000000 positions in 5 hours 2 minutes 27 seconds.
+         - Parsed 153000000 positions in 5 hours 4 minutes 19 seconds.
+         - Parsed 154000000 positions in 5 hours 6 minutes 14 seconds.
+         - Parsed 155000000 positions in 5 hours 8 minutes 26 seconds.
+         - Parsed 156000000 positions in 5 hours 10 minutes 32 seconds.
+         - Parsed 157000000 positions in 5 hours 12 minutes 29 seconds.
+         - Parsed 158000000 positions in 5 hours 14 minutes 32 seconds.
+         - Parsed 159000000 positions in 5 hours 16 minutes 38 seconds.
+         - Parsed 160000000 positions in 5 hours 18 minutes 41 seconds.
+         - Parsed 161000000 positions in 5 hours 20 minutes 38 seconds.
+         - Parsed 162000000 positions in 5 hours 22 minutes 52 seconds.
+         - Parsed 163000000 positions in 5 hours 24 minutes 48 seconds.
+         - Parsed 164000000 positions in 5 hours 26 minutes 43 seconds.
+         - Parsed 165000000 positions in 5 hours 28 minutes 47 seconds.
+         - Parsed 166000000 positions in 5 hours 30 minutes 48 seconds.
+         - Parsed 167000000 positions in 5 hours 32 minutes 49 seconds.
+         - Parsed 168000000 positions in 5 hours 34 minutes 47 seconds.
+         - Parsed 169000000 positions in 5 hours 36 minutes 47 seconds.
+         - Parsed 170000000 positions in 5 hours 38 minutes 51 seconds.
+         - Parsed 171000000 positions in 5 hours 40 minutes 53 seconds.
+         - Parsed 172000000 positions in 5 hours 43 minutes 0 seconds.
+         - Parsed 173000000 positions in 5 hours 45 minutes 7 seconds.
+         - Parsed 174000000 positions in 5 hours 47 minutes 7 seconds.
+         - Parsed 175000000 positions in 5 hours 49 minutes 5 seconds.
+         - Parsed 176000000 positions in 5 hours 51 minutes 11 seconds.
+         - Parsed 177000000 positions in 5 hours 53 minutes 5 seconds.
+         - Parsed 178000000 positions in 5 hours 55 minutes 11 seconds.
+         - Parsed 179000000 positions in 5 hours 57 minutes 20 seconds.
+         - Parsed 180000000 positions in 5 hours 59 minutes 27 seconds.
+         - Parsed 181000000 positions in 6 hours 1 minute 25 seconds.
+         - Parsed 182000000 positions in 6 hours 3 minutes 29 seconds.
+         - Parsed 183000000 positions in 6 hours 5 minutes 27 seconds.
+         - Parsed 184000000 positions in 6 hours 7 minutes 29 seconds.
+         - Parsed 185000000 positions in 6 hours 9 minutes 43 seconds.
+         - Parsed 186000000 positions in 6 hours 12 minutes 2 seconds.
+         - Parsed 187000000 positions in 6 hours 14 minutes 27 seconds.
+         - Parsed 188000000 positions in 6 hours 16 minutes 40 seconds.
+         - Parsed 189000000 positions in 6 hours 18 minutes 48 seconds.
+         - Parsed 190000000 positions in 6 hours 21 minutes 2 seconds.
+         - Parsed 191000000 positions in 6 hours 23 minutes 4 seconds.
+         - Parsed 192000000 positions in 6 hours 25 minutes 10 seconds.
+         - Parsed 193000000 positions in 6 hours 27 minutes 16 seconds.
+         - Parsed 194000000 positions in 6 hours 29 minutes 25 seconds.
+         - Parsed 195000000 positions in 6 hours 31 minutes 44 seconds.
+         - Parsed 196000000 positions in 6 hours 33 minutes 51 seconds.
+         - Parsed 197000000 positions in 6 hours 36 minutes 9 seconds.
+         - Parsed 198000000 positions in 6 hours 38 minutes 14 seconds.
+         - Parsed 199000000 positions in 6 hours 40 minutes 19 seconds.
+         - Parsed 200000000 positions in 6 hours 42 minutes 27 seconds.
+         - Parsed 201000000 positions in 6 hours 44 minutes 31 seconds.
+         - Parsed 202000000 positions in 6 hours 46 minutes 33 seconds.
+         - Parsed 203000000 positions in 6 hours 48 minutes 39 seconds.
+         - Parsed 204000000 positions in 6 hours 50 minutes 41 seconds.
+         - Parsed 205000000 positions in 6 hours 52 minutes 40 seconds.
+         - Parsed 206000000 positions in 6 hours 54 minutes 45 seconds.
+         - Parsed 207000000 positions in 6 hours 56 minutes 57 seconds.
+         - Parsed 208000000 positions in 6 hours 59 minutes 12 seconds.
+         - Parsed 209000000 positions in 7 hours 1 minute 22 seconds.
+         - Parsed 210000000 positions in 7 hours 3 minutes 35 seconds.
+         - Parsed 211000000 positions in 7 hours 5 minutes 42 seconds.
+         - Parsed 212000000 positions in 7 hours 7 minutes 44 seconds.
+         - Parsed 213000000 positions in 7 hours 9 minutes 51 seconds.
+         - Parsed 214000000 positions in 7 hours 12 minutes 3 seconds.
+         - Parsed 215000000 positions in 7 hours 14 minutes 10 seconds.
+         - Parsed 216000000 positions in 7 hours 16 minutes 21 seconds.
+         - Parsed 217000000 positions in 7 hours 18 minutes 29 seconds.
+         - Parsed 218000000 positions in 7 hours 20 minutes 34 seconds.
+         - Parsed 219000000 positions in 7 hours 22 minutes 37 seconds.
+         - Parsed 220000000 positions in 7 hours 24 minutes 51 seconds.
+         - Parsed 221000000 positions in 7 hours 27 minutes 7 seconds.
+         - Parsed 222000000 positions in 7 hours 29 minutes 17 seconds.
+         - Parsed 223000000 positions in 7 hours 31 minutes 26 seconds.
+         - Parsed 224000000 positions in 7 hours 33 minutes 28 seconds.
+         - Parsed 225000000 positions in 7 hours 35 minutes 33 seconds.
+         - Parsed 226000000 positions in 7 hours 37 minutes 50 seconds.
+         - Parsed 227000000 positions in 7 hours 40 minutes 2 seconds.
+         - Parsed 228000000 positions in 7 hours 42 minutes 12 seconds.
+         - Parsed 229000000 positions in 7 hours 44 minutes 21 seconds.
+         - Parsed 230000000 positions in 7 hours 46 minutes 37 seconds.
+         - Parsed 231000000 positions in 7 hours 48 minutes 46 seconds.
+         - Parsed 232000000 positions in 7 hours 51 minutes 0 seconds.
+         - Parsed 233000000 positions in 7 hours 53 minutes 9 seconds.
+         - Parsed 234000000 positions in 7 hours 55 minutes 24 seconds.
+         - Parsed 235000000 positions in 7 hours 57 minutes 44 seconds.
+         - Parsed 236000000 positions in 7 hours 59 minutes 57 seconds.
+         - Parsed 237000000 positions in 8 hours 2 minutes 3 seconds.
+         - Parsed 238000000 positions in 8 hours 4 minutes 8 seconds.
+         - Parsed 239000000 positions in 8 hours 6 minutes 18 seconds.
+         - Parsed 240000000 positions in 8 hours 8 minutes 25 seconds.
+         - Parsed 241000000 positions in 8 hours 10 minutes 25 seconds.
+         - Parsed 242000000 positions in 8 hours 12 minutes 31 seconds.
+         - Parsed 243000000 positions in 8 hours 14 minutes 30 seconds.
+         - Parsed 244000000 positions in 8 hours 16 minutes 39 seconds.
+         - Parsed 245000000 positions in 8 hours 18 minutes 45 seconds.
+         - Parsed 246000000 positions in 8 hours 20 minutes 54 seconds.
+         - Parsed 247000000 positions in 8 hours 23 minutes 2 seconds.
+         - Parsed 248000000 positions in 8 hours 25 minutes 14 seconds.
+         - Parsed 249000000 positions in 8 hours 27 minutes 18 seconds.
+         - Parsed 250000000 positions in 8 hours 29 minutes 29 seconds.
+         - Parsed 251000000 positions in 8 hours 31 minutes 36 seconds.
+         - Parsed 252000000 positions in 8 hours 33 minutes 47 seconds.
+         - Parsed 253000000 positions in 8 hours 35 minutes 55 seconds.
+         - Parsed 254000000 positions in 8 hours 37 minutes 58 seconds.
+         - Parsed 255000000 positions in 8 hours 40 minutes 3 seconds.
+         - Parsed 256000000 positions in 8 hours 42 minutes 9 seconds.
+         - Parsed 257000000 positions in 8 hours 44 minutes 20 seconds.
+         - Parsed 258000000 positions in 8 hours 46 minutes 29 seconds.
+         - Parsed 259000000 positions in 8 hours 48 minutes 40 seconds.
+         - Parsed 260000000 positions in 8 hours 50 minutes 45 seconds.
+         - Parsed 261000000 positions in 8 hours 52 minutes 59 seconds.
+         - Parsed 262000000 positions in 8 hours 55 minutes 33 seconds.
+         - Parsed 263000000 positions in 8 hours 58 minutes 7 seconds.
+         - Parsed 264000000 positions in 9 hours 0 minutes 40 seconds.
+         - Parsed 265000000 positions in 9 hours 3 minutes 1 second.
+         - Parsed 266000000 positions in 9 hours 5 minutes 13 seconds.
+         - Parsed 267000000 positions in 9 hours 7 minutes 16 seconds.
+         - Parsed 268000000 positions in 9 hours 9 minutes 21 seconds.
+         - Parsed 269000000 positions in 9 hours 11 minutes 33 seconds.
+         - Parsed 270000000 positions in 9 hours 13 minutes 45 seconds.
+         - Parsed 271000000 positions in 9 hours 15 minutes 50 seconds.
+         - Parsed 272000000 positions in 9 hours 18 minutes 11 seconds.
+         - Parsed 273000000 positions in 9 hours 20 minutes 33 seconds.
+         - Parsed 274000000 positions in 9 hours 22 minutes 55 seconds.
+         - Parsed 275000000 positions in 9 hours 25 minutes 15 seconds.
+         - Parsed 276000000 positions in 9 hours 27 minutes 34 seconds.
+         - Parsed 277000000 positions in 9 hours 29 minutes 48 seconds.
+         - Parsed 278000000 positions in 9 hours 32 minutes 10 seconds.
+         - Parsed 279000000 positions in 9 hours 34 minutes 13 seconds.
+         - Parsed 280000000 positions in 9 hours 36 minutes 33 seconds.
+         - Parsed 281000000 positions in 9 hours 38 minutes 57 seconds.
+         - Parsed 282000000 positions in 9 hours 41 minutes 10 seconds.
+         - Parsed 283000000 positions in 9 hours 43 minutes 24 seconds.
+         - Parsed 284000000 positions in 9 hours 45 minutes 43 seconds.
+         - Parsed 285000000 positions in 9 hours 47 minutes 56 seconds.
+         - Parsed 286000000 positions in 9 hours 50 minutes 5 seconds.
+         - Parsed 287000000 positions in 9 hours 52 minutes 16 seconds.
+         - Parsed 288000000 positions in 9 hours 54 minutes 20 seconds.
+         - Parsed 289000000 positions in 9 hours 56 minutes 30 seconds.
+         - Parsed 290000000 positions in 9 hours 58 minutes 36 seconds.
+         - Parsed 291000000 positions in 10 hours 0 minutes 36 seconds.
+         - Parsed 292000000 positions in 10 hours 2 minutes 42 seconds.
+         - Parsed 293000000 positions in 10 hours 4 minutes 54 seconds.
+         - Parsed 294000000 positions in 10 hours 7 minutes 5 seconds.
+         - Parsed 295000000 positions in 10 hours 9 minutes 22 seconds.
+         - Parsed 296000000 positions in 10 hours 11 minutes 42 seconds.
+         - Parsed 297000000 positions in 10 hours 13 minutes 52 seconds.
+         - Parsed 298000000 positions in 10 hours 16 minutes 2 seconds.
+         - Parsed 299000000 positions in 10 hours 18 minutes 11 seconds.
+         - Parsed 300000000 positions in 10 hours 20 minutes 19 seconds.
+         - Parsed 301000000 positions in 10 hours 22 minutes 24 seconds.
+         - Parsed 302000000 positions in 10 hours 24 minutes 37 seconds.
+         - Parsed 303000000 positions in 10 hours 26 minutes 42 seconds.
+         - Parsed 304000000 positions in 10 hours 28 minutes 54 seconds.
+         - Parsed 305000000 positions in 10 hours 31 minutes 6 seconds.
+         - Parsed 306000000 positions in 10 hours 33 minutes 23 seconds.
+         - Parsed 307000000 positions in 10 hours 35 minutes 42 seconds.
+         - Parsed 308000000 positions in 10 hours 37 minutes 51 seconds.
+         - Parsed 309000000 positions in 10 hours 40 minutes 0 seconds.
+         - Parsed 310000000 positions in 10 hours 42 minutes 19 seconds.
+         - Parsed 311000000 positions in 10 hours 44 minutes 22 seconds.
+         - Parsed 312000000 positions in 10 hours 46 minutes 28 seconds.
+         - Parsed 313000000 positions in 10 hours 48 minutes 41 seconds.
+         - Parsed 314000000 positions in 10 hours 51 minutes 0 seconds.
+         - Parsed 315000000 positions in 10 hours 53 minutes 9 seconds.
+         - Parsed 316000000 positions in 10 hours 55 minutes 26 seconds.
+         - Parsed 317000000 positions in 10 hours 57 minutes 40 seconds.
+         - Parsed 318000000 positions in 10 hours 59 minutes 56 seconds.
+         - Parsed 319000000 positions in 11 hours 2 minutes 8 seconds.
+         - Parsed 320000000 positions in 11 hours 4 minutes 16 seconds.
+         - Parsed 321000000 positions in 11 hours 6 minutes 29 seconds.
+         - Parsed 322000000 positions in 11 hours 8 minutes 48 seconds.
+         - Parsed 323000000 positions in 11 hours 11 minutes 0 seconds.
+         - Parsed 324000000 positions in 11 hours 13 minutes 11 seconds.
+         - Parsed 325000000 positions in 11 hours 15 minutes 33 seconds.
+         - Parsed 326000000 positions in 11 hours 17 minutes 42 seconds.
+         - Parsed 327000000 positions in 11 hours 19 minutes 56 seconds.
+         - Parsed 328000000 positions in 11 hours 22 minutes 5 seconds.
+         - Parsed 329000000 positions in 11 hours 24 minutes 14 seconds.
+         - Parsed 330000000 positions in 11 hours 26 minutes 31 seconds.
+         - Parsed 331000000 positions in 11 hours 28 minutes 48 seconds.
+         - Parsed 332000000 positions in 11 hours 31 minutes 3 seconds.
+         - Parsed 333000000 positions in 11 hours 33 minutes 16 seconds.
+         - Parsed 334000000 positions in 11 hours 35 minutes 32 seconds.
+         - Parsed 335000000 positions in 11 hours 37 minutes 42 seconds.
+         - Parsed 336000000 positions in 11 hours 39 minutes 46 seconds.
+         - Parsed 337000000 positions in 11 hours 42 minutes 5 seconds.
+         - Parsed 338000000 positions in 11 hours 44 minutes 19 seconds.
+         - Parsed 339000000 positions in 11 hours 46 minutes 32 seconds.
+         - Parsed 340000000 positions in 11 hours 48 minutes 39 seconds.
+         - Parsed 341000000 positions in 11 hours 50 minutes 49 seconds.
+         - Parsed 342000000 positions in 11 hours 53 minutes 5 seconds.
+         - Parsed 343000000 positions in 11 hours 55 minutes 20 seconds.
+         - Parsed 344000000 positions in 11 hours 57 minutes 33 seconds.
+         - Parsed 345000000 positions in 11 hours 59 minutes 42 seconds.
+         - Parsed 346000000 positions in 12 hours 1 minute 59 seconds.
+         - Parsed 347000000 positions in 12 hours 4 minutes 11 seconds.
+         - Parsed 348000000 positions in 12 hours 6 minutes 33 seconds.
+         - Parsed 349000000 positions in 12 hours 8 minutes 54 seconds.
+         - Parsed 350000000 positions in 12 hours 11 minutes 15 seconds.
+         - Parsed 351000000 positions in 12 hours 13 minutes 32 seconds.
+         - Parsed 352000000 positions in 12 hours 15 minutes 46 seconds.
+         - Parsed 353000000 positions in 12 hours 18 minutes 1 second.
+         - Parsed 354000000 positions in 12 hours 20 minutes 20 seconds.
+         - Parsed 355000000 positions in 12 hours 22 minutes 35 seconds.
+         - Parsed 356000000 positions in 12 hours 24 minutes 52 seconds.
+         - Parsed 357000000 positions in 12 hours 27 minutes 3 seconds.
+         - Parsed 358000000 positions in 12 hours 29 minutes 25 seconds.
+         - Parsed 359000000 positions in 12 hours 31 minutes 43 seconds.
+         - Parsed 360000000 positions in 12 hours 34 minutes 0 seconds.
+         - Parsed 361000000 positions in 12 hours 36 minutes 17 seconds.
+         - Parsed 362000000 positions in 12 hours 38 minutes 31 seconds.
+         - Parsed 363000000 positions in 12 hours 40 minutes 53 seconds.
+         - Parsed 364000000 positions in 12 hours 42 minutes 57 seconds.
+         - Parsed 365000000 positions in 12 hours 45 minutes 5 seconds.
+         - Parsed 366000000 positions in 12 hours 47 minutes 22 seconds.
+         - Parsed 367000000 positions in 12 hours 49 minutes 33 seconds.
+         - Parsed 368000000 positions in 12 hours 51 minutes 50 seconds.
+         - Parsed 369000000 positions in 12 hours 53 minutes 56 seconds.
+         - Parsed 370000000 positions in 12 hours 56 minutes 9 seconds.
+         - Parsed 371000000 positions in 12 hours 58 minutes 28 seconds.
+         - Parsed 372000000 positions in 13 hours 0 minutes 47 seconds.
+         - Parsed 373000000 positions in 13 hours 3 minutes 0 seconds.
+         - Parsed 374000000 positions in 13 hours 5 minutes 24 seconds.
+         - Parsed 375000000 positions in 13 hours 7 minutes 48 seconds.
+         - Parsed 376000000 positions in 13 hours 10 minutes 5 seconds.
+         - Parsed 377000000 positions in 13 hours 12 minutes 23 seconds.
+         - Parsed 378000000 positions in 13 hours 14 minutes 36 seconds.
+         - Parsed 379000000 positions in 13 hours 16 minutes 47 seconds.
+         - Parsed 380000000 positions in 13 hours 19 minutes 3 seconds.
+         - Parsed 381000000 positions in 13 hours 21 minutes 13 seconds.
+         - Parsed 382000000 positions in 13 hours 23 minutes 26 seconds.
+         - Parsed 383000000 positions in 13 hours 25 minutes 37 seconds.
+         - Parsed 384000000 positions in 13 hours 27 minutes 55 seconds.
+         - Parsed 385000000 positions in 13 hours 30 minutes 16 seconds.
+         - Parsed 386000000 positions in 13 hours 32 minutes 39 seconds.
+         - Parsed 387000000 positions in 13 hours 35 minutes 1 second.
+         - Parsed 388000000 positions in 13 hours 37 minutes 24 seconds.
+         - Parsed 389000000 positions in 13 hours 39 minutes 46 seconds.
+         - Parsed 390000000 positions in 13 hours 42 minutes 5 seconds.
+         - Parsed 391000000 positions in 13 hours 44 minutes 23 seconds.
+         - Parsed 392000000 positions in 13 hours 46 minutes 39 seconds.
+         - Parsed 393000000 positions in 13 hours 48 minutes 53 seconds.
+         - Parsed 394000000 positions in 13 hours 51 minutes 11 seconds.
+         - Parsed 395000000 positions in 13 hours 53 minutes 36 seconds.
+         - Parsed 396000000 positions in 13 hours 55 minutes 53 seconds.
+         - Parsed 397000000 positions in 13 hours 58 minutes 10 seconds.
+         - Parsed 398000000 positions in 14 hours 0 minutes 27 seconds.
+         - Parsed 399000000 positions in 14 hours 2 minutes 43 seconds.
+         - Parsed 400000000 positions in 14 hours 5 minutes 5 seconds.
+         - Parsed 401000000 positions in 14 hours 7 minutes 21 seconds.
+         - Parsed 402000000 positions in 14 hours 9 minutes 30 seconds.
+         - Parsed 403000000 positions in 14 hours 11 minutes 45 seconds.
+         - Parsed 404000000 positions in 14 hours 14 minutes 9 seconds.
+         - Parsed 405000000 positions in 14 hours 16 minutes 32 seconds.
+         - Parsed 406000000 positions in 14 hours 18 minutes 49 seconds.
+         - Parsed 407000000 positions in 14 hours 21 minutes 6 seconds.
+         - Parsed 408000000 positions in 14 hours 23 minutes 16 seconds.
+         - Parsed 409000000 positions in 14 hours 25 minutes 46 seconds.
+         - Parsed 410000000 positions in 14 hours 28 minutes 9 seconds.
+         - Parsed 411000000 positions in 14 hours 30 minutes 37 seconds.
+         - Reached end of glf files!
+   - ATLAS terminated successfully in 14 hours 32 minutes 28 seconds!
+

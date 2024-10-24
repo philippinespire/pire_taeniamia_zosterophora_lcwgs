@@ -1,0 +1,8 @@
+ATLAS 0.92
+Commit: bef242b05d7b28b6830cc0627d1d4f6a9cc28824
+Email developer: andreas.fueglistaler@unifr.ch
+
+atlas --RGInfo TzoCMvi071.merged.rmdup.merged.realn_RGInfo.json --bam TzoCMvi071.merged.rmdup.merged.realn.bam --genomeWide --logFile TzoCMvi071_log --out TzoCMvi071_theta --prob 1,0.5,0.2,0.1,0.05,0.02,0.01 --task theta 
+ERROR: File /tmp/install.OpQX/atlas/genometools/core/genometools/GenomePositions/TGenomePosition.h, line 53, function constexpr size_t genometools::TGenomePosition::operator-(const genometools::TGenomePosition&) const: positions are not on same chromosome!
+
+Files attached to email: ATLAS_usedParams.txt , ATLAS_errorInfo.txt , TzoCMvi071.merged.rmdup.merged.realn_RGInfo.json, TzoCMvi071.merged.rmdup.merged.realn.bam, TzoCMvi071_log
