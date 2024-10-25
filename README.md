@@ -367,13 +367,34 @@ Downstream analysis was run using ANGSD v. 0.940.
 
 Scripts are adapted from Nina Therkildsen's lab's genomic-data-analysis repository (https://github.com/therkildsen-lab/genomic-data-analysis).
 
-## Start by identifying a list of SNPs for further analysis.
+# Start by identifying a list of SNPs for further analysis.
 
 This SNP list was generated to ensure that analyses are run on the same loci across all 4 populations.
+
 Unless otherwise noted, this list of SNPs was used for all subsequent analyses.
 
-## Get genotype likelihoods and generate a BEAGLE file for all populations.
+Filters used to generate a list of SNPs: minimum depth filters that corresponded to 1x per individual, maximum depth filters corresponding to 15x per individual, a minimum individual filter of 50% of the total number of individuals (111), a map quality filter of 30, a minimum allele frequency filter of 0.001, and a SNP p-value of 10-6.
+
+Transitions were excluded in all subsequent analyses.
+
+# Get genotype likelihoods and generate a BEAGLE file for all populations.
+
 Beagle file for all populations will be used for population structure (PCANGSD).
 
+# PCANGSD- PCA and Admixture analyses 
 
+Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most supported. Admixture was also set manually to run for K=3-5 (using the e= argument).
+
+# Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
+Site allele frequencies (.saf) files are needed to calculate the SFS and genetic diversity metrics.
+
+# Generate the site frequency spectrum (SFS) for each population.
+Generated a folded SFS because we did not have a known ancestral state genome.
+
+# Calculate per-site thetas using the saf2theta command.
+
+# Calculate neutrality test statistics using the do_stat command.
+
+The output .thetas.idx.pestPG file is used for statistical analysis in R. Since we are using a folded SFS (unknown ancestral state), we are able to generate Watterson's
+theta (thetaW), nucleotide diversity (thetaD), and Tajima's D. 
 
