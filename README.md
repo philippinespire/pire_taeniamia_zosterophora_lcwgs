@@ -365,7 +365,15 @@ sbatch run_GenErode.sbatch
 
 Downstream analysis was run using ANGSD v. 0.940. 
 
-##Start by identifying a list of SNPs for further analysis.
+Scripts are adapted from Nina Therkildsen's lab's genomic-data-analysis repository (https://github.com/therkildsen-lab/genomic-data-analysis).
+
+## Start by identifying a list of SNPs for further analysis.
 
 This SNP list was generated to ensure that analyses are run on the same loci across all 4 populations.
+Unless otherwise noted, this list of SNPs was used for all subsequent analyses.
+
+## Get genotype likelihoods and generate a BEAGLE file for all populations.
+Beagle file for all populations will be used for population structure (PCANGSD).
+
+
 
