@@ -462,3 +462,42 @@ sbatch fst.sbatch <directory where the .saf.idx files are>
 Unweighted and weighted Fst estimates are generated. We reported weighted estimates in our manuscript.
 
 
+# Statistical Analysis in R
+
+## Identifying selection using the selection.R script 
+
+Using the adapted CMH test to identify SNP candidates for selection at both sampling sites, and the adapted Chi-squared test to identify SNP candidates for selection 
+at each sampling site individually. A generation time of one year was used. Effective density estimates come from the "Ne_estimation.R" script anduse Jorde and Ryman's method (2007).
+SNPs with a false detection rate (FDR) less than 0.05 were considered to be under selection.
+
+A list of all SNPs with the selection candidates excluded (i.e. putatively neutral SNPs) is compiled at the end of the selection.R script. ~1.3 million SNPs are on this neutral list.
+This neutral SNP list is then used to run all downstream analyses in ANGSD to evaluate how selection may have impacted genetic diversity and population structure results. 
+See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and 
+the 1.3 million neutral SNP output files. 
+
+## Generating PCA plots using the pca.R and pca_neutral.R scripts
+
+Utilizing the .cov matrices from PCANGSD as the input. pca.R utilizes all 1.78 million SNPs, and pca_neutral.R utilizes the 1.3 million neutral SNPs. 
+
+
+## Generating Admixture plots using the admixture.R and admixture_neutral.R scripts
+
+Utilizing the ".Q" proportion outputs from PCANGSD as the input. admixture.R utilizes all 1.78 million SNPs, and admixture_neutral.R utilizes the 1.3 million neutral SNPs. 
+
+## Estimating effective population size (Ne) using Ne_estimation.R and Ne_estimation_neutral.R
+
+Using the .mafs.gz outputs from the "saf_beagle_maf.sbatch" ANGSD script. 
+Code developed from Jorde & Ryman 2007 and the NeEstimator manual v.2.1
+
+Ne_estimation.R is used to generate Ne estimates for the adapted CMH and adapted Chi-squared selection scan tests. 
+Ne_estimation_neutral.R is used to generate Ne estimates from the 1.3 million neutral SNPs. These estimates are reported in our manuscript. 
+
+## Analyzing changes in genetic diversity: Watterson's theta, nucleotide diversity (pi), and Tajima's D using the geneticdiversity.R and geneticdiversity_neutral.R scripts. 
+
+Using the .thetas.idx.pestPG outputs from ANGSD.
+Watterson's theta and nucleotide diversity were originally plotted against sequencing depth (mean depth per individual) to evaluate any depth based correlations that may be biasing results. 
+This analysis identified that genetic diversity was sensitive to sequencing depth below 3x or above 6x (Figures S1-S2); we therefore restricted analyses on genetic diversity metrics to the 2,291 contigs with 3-6x depth. The following statistical analyses for all three metrics were run on this 3-6x depth range (452,496 SNPs). 
+
+
+
+
