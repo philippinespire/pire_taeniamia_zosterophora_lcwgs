@@ -377,6 +377,10 @@ Filters used to generate a list of SNPs: minimum depth filters that corresponded
 
 Transitions were excluded in all subsequent analyses.
 
+sbatch snp_calling.sbatch <directory where your bam files are stored>
+
+Yielded a list of ~1.78 million SNPs. 
+
 ## Get genotype likelihoods and generate a BEAGLE file for all populations.
 
 Beagle file for all populations will be used for population structure (PCANGSD).
