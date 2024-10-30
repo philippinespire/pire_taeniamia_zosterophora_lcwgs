@@ -435,9 +435,30 @@ This script needs to be run for each population. It utilizes the .saf.idx and th
 
 sbatch saf2theta.sbatch <directory with your saf and sfs files>
 
+Generates a thetas.idx file for each population that will be used in the next step.
+
 ## Calculate neutrality test statistics using the do_stat command.
 
-This script needs to be run for each population. It utilizes the .saf.idx and the .sfs files generated in the last steps.
+This script needs to be run for each population. It utilizes the .thetas.idx file generated in the last step.
+
+sbatch thetastat.sbatch <directory where your thetas.idx file is>
 
 The output .thetas.idx.pestPG file is used for statistical analysis in the geneticdiversity.R script. Since we are using a folded SFS (unknown ancestral state), we are able to generate Watterson's theta (thetaW), nucleotide diversity (thetaD), and Tajima's D. 
+
+The output files for this step are also on this repository:
+Malampaya Historical: abol_notrans.thetas.idx.pestPG
+Malampaya Contemporary: cbol_notrans.thetas.idx.pestPG
+Mantatao Island Historical: amta_notrans.thetas.idx.pestPG
+Mantatao Island Contemporary: cmta_notrans.thetas.idx.pestPG
+
+
+## Calculate pairwise Fst 
+
+This script needs to be run for each pair of populations. Each location/time period is one population (e.g. Malampaya Historical is one population). 
+It requires the .saf.idx files for each population.
+
+sbatch fst.sbatch <directory where the .saf.idx files are>
+
+Unweighted and weighted Fst estimates are generated. We reported weighted estimates in our manuscript.
+
 
