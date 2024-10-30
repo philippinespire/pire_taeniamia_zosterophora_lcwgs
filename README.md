@@ -409,28 +409,35 @@ Site allele frequencies (.saf) files are needed to calculate the SFS and genetic
 This script needs to be run for each population. A text file with a list of bam files for each population is needed in each script.
 We utilized the reference genome for both -ref and -anc because an ancestral genome was not available. 
 
-sbatch saf_beagle_maf.sbatch <directory where your bam files are stored>
+sbatch saf_beagle_maf.sbatch <directory with your bam files>
 
 Output files:
-Malampaya Historical: abol_sites_notrans.beagle.gz, abol_sites_notrans.saf.gz, abol_sites_notrans.mafs.gz
-Malampaya Contemporary: cbol_sites_notrans.beagle.gz, cbol_sites_notrans.saf.gz, cbol_sites_notrans.mafs.gz
-Mantatao Island Historical: amta_sites_notrans.beagle.gz, amta_sites_notrans.saf.gz, amta_sites_notrans.mafs.gz
-Mantatao Island Contemporary: cmta_sites_notrans.beagle.gz, cmta_sites_notrans.saf.gz, cmta_sites_notrans.mafs.gz
+Malampaya Historical: abol_sites_notrans.beagle.gz, abol_sites_notrans.saf.gz, abol_sites_notrans.saf.idx, abol_sites_notrans.mafs.gz
+Malampaya Contemporary: cbol_sites_notrans.beagle.gz, cbol_sites_notrans.saf.gz, cbol_sites_notrans.saf.idx, cbol_sites_notrans.mafs.gz
+Mantatao Island Historical: amta_sites_notrans.beagle.gz, amta_sites_notrans.saf.gz, amta_sites_notrans.saf.idx, amta_sites_notrans.mafs.gz
+Mantatao Island Contemporary: cmta_sites_notrans.beagle.gz, cmta_sites_notrans.saf.gz, cmta_sites_notrans.saf.idx, cmta_sites_notrans.mafs.gz
 
-The .saf.gz files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
+The .saf.idx files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
 The .mafs.gz files are used in the selection.R script to run selection scans.
 
 ## Generate the site frequency spectrum (SFS) for each population.
 Generated a folded SFS because we did not have a known ancestral state genome.
 
-This script needs to be run for each population. It utilizes the .saf.gz files generated in the last step.
+This script needs to be run for each population. It utilizes the .saf.idx files generated in the last step.
 
+sbatch sfs.sbatch <directory with your saf files>
 
+Generates a .sfs file for each population that will be sused as an input for the saf2theta command in the next step.
 
 ## Calculate per-site thetas using the saf2theta command.
 
+This script needs to be run for each population. It utilizes the .saf.idx and the .sfs files generated in the last steps.
+
+sbatch saf2theta.sbatch <directory with your saf and sfs files>
+
 ## Calculate neutrality test statistics using the do_stat command.
 
-The output .thetas.idx.pestPG file is used for statistical analysis in R. Since we are using a folded SFS (unknown ancestral state), we are able to generate Watterson's
-theta (thetaW), nucleotide diversity (thetaD), and Tajima's D. 
+This script needs to be run for each population. It utilizes the .saf.idx and the .sfs files generated in the last steps.
+
+The output .thetas.idx.pestPG file is used for statistical analysis in the geneticdiversity.R script. Since we are using a folded SFS (unknown ancestral state), we are able to generate Watterson's theta (thetaW), nucleotide diversity (thetaD), and Tajima's D. 
 
