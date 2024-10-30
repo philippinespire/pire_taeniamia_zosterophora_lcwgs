@@ -385,9 +385,15 @@ Yielded a list of ~1.78 million SNPs.
 
 Beagle file for all populations will be used for population structure (PCANGSD).
 
+sbatch get_beagle.sbatch <directory where your bam files are stored>
+
+Output angsd_depth1_15_notrans.beagle.gz is used for PCANGSD. This Beagle file is also available on this repository.
+
 ## PCANGSD- PCA and Admixture analyses 
 
 Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most supported. Admixture was also set manually to run for K=3-5 (using the e= argument).
+
+
 
 ## Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
 Site allele frequencies (.saf) files are needed to calculate the SFS and genetic diversity metrics.
