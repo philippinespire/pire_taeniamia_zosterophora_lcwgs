@@ -406,8 +406,26 @@ Output: ".Q" files for K=2-5 are used to generate admixture plots in the admixtu
 ## Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
 Site allele frequencies (.saf) files are needed to calculate the SFS and genetic diversity metrics.
 
+This script needs to be run for each population. A text file with a list of bam files for each population is needed in each script.
+We utilized the reference genome for both -ref and -anc because an ancestral genome was not available. 
+
+sbatch saf_beagle_maf.sbatch <directory where your bam files are stored>
+
+Output files:
+Malampaya Historical: abol_sites_notrans.beagle.gz, abol_sites_notrans.saf.gz, abol_sites_notrans.mafs.gz
+Malampaya Contemporary: cbol_sites_notrans.beagle.gz, cbol_sites_notrans.saf.gz, cbol_sites_notrans.mafs.gz
+Mantatao Island Historical: amta_sites_notrans.beagle.gz, amta_sites_notrans.saf.gz, amta_sites_notrans.mafs.gz
+Mantatao Island Contemporary: cmta_sites_notrans.beagle.gz, cmta_sites_notrans.saf.gz, cmta_sites_notrans.mafs.gz
+
+The .saf.gz files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
+The .mafs.gz files are used in the selection.R script to run selection scans.
+
 ## Generate the site frequency spectrum (SFS) for each population.
 Generated a folded SFS because we did not have a known ancestral state genome.
+
+This script needs to be run for each population. It utilizes the .saf.gz files generated in the last step.
+
+
 
 ## Calculate per-site thetas using the saf2theta command.
 
