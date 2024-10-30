@@ -2,6 +2,7 @@
 
 library(tidyverse)
 library(cowplot)
+library(boot)
 
 ##Load in theta outputs by population (abol, amta, cbol, cmta)
 
