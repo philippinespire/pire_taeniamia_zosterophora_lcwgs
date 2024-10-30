@@ -389,10 +389,18 @@ sbatch get_beagle.sbatch <directory where your bam files are stored>
 
 Output angsd_depth1_15_notrans.beagle.gz is used for PCANGSD. This Beagle file is also available on this repository.
 
+
 ## PCANGSD- PCA and Admixture analyses 
 
 Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most supported. Admixture was also set manually to run for K=3-5 (using the e= argument).
 
+PCA: sbatch pcangsd_pca.sbatch <directory where your Beagle file is stored>
+
+Output: angsd_notrans_snps_pca.cov is used to generate a PCA plot in the pca.R script.
+
+Admixture: sbatch pcangsd_admix.sbatch <directory where your Beagle file is stored>
+
+Output: ".Q" files for K=2-5 are used to generate admixture plots in the admixture.R script.
 
 
 ## Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
