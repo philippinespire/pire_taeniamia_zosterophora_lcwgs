@@ -13,7 +13,7 @@ The code for analysis is separated into 4 main sections:
  4) Statistical analysis in R
 
 Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.
-Statistical analyis was run using R v.4.4.1 on a MacBook Pro (Apple M3 Pro Chip with 36 GB memory)
+Statistical analysis was run using R v.4.4.1 on a MacBook Pro (Apple M3 Pro Chip with 36 GB memory)
 
 # Pre-processing
 Following the pire_fq_gz_processing repo (https://github.com/philippinespire/pire_fq_gz_processing)
