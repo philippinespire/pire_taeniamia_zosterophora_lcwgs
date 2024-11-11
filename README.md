@@ -6,6 +6,10 @@ This repository provides the code for the paper: Preservation of genetic diversi
 Data uploading is currently in progress. As genomic data is too large to be stored on GitHub, sequence data will be uploaded to the NCBI SRA and metadata to GEOME-DB.
 Links to data and metadata will be posted here as soon as it is finished uploading.
 
+Metadata Links:
+Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)
+Mantatao Island: https://n2t.net/ark:/21547/FtY2 (Historical) and https://n2t.net/ark:/21547/Fte2 (Contemporary)
+
 The code for analysis is separated into 4 main sections:
  1) Pre-processing of sequence data following the pire_fq_gz_processing repository (https://github.com/philippinespire/pire_fq_gz_processing)
  2) Mapping using the GenErode pipeline (generating rescaled and realigned bam files for use in ANGSD)
