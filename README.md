@@ -10,6 +10,8 @@ Metadata Links:
 Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)
 Mantatao Island: https://n2t.net/ark:/21547/FtY2 (Historical) and https://n2t.net/ark:/21547/Fte2 (Contemporary)
 
+The genome assembly used for mapping is available on FigShare: 10.6084/m9.figshare.27682767. It can also be found by searching "Taeniamia zosterophora Genome Assembly" on figshare.com. The assembly will be uploaded to NCBI upon acceptance of the publication.
+
 The code for analysis is separated into 4 main sections:
  1) Pre-processing of sequence data following the pire_fq_gz_processing repository (https://github.com/philippinespire/pire_fq_gz_processing)
  2) Mapping using the GenErode pipeline (generating rescaled and realigned bam files for use in ANGSD)
