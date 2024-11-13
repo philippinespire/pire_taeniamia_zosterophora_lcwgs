@@ -393,7 +393,6 @@ Beagle file for all populations will be used for population structure (PCANGSD).
 
 sbatch get_beagle.sbatch <directory where your bam files are stored>
 
-Output angsd_depth1_15_notrans.beagle.gz is used for PCANGSD. This Beagle file is also available on this repository.
 
 
 ## PCANGSD- PCA and Admixture analyses 
@@ -402,7 +401,7 @@ Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most
 
 PCA: sbatch pcangsd_pca.sbatch <directory where your Beagle file is stored>
 
-Output: angsd_notrans_snps_pca.cov is used to generate a PCA plot in the pca.R script.
+Output: ".cov" matrix is used to generate a PCA plot in the pca.R script.
 
 Admixture: sbatch pcangsd_admix.sbatch <directory where your Beagle file is stored>
 
@@ -416,12 +415,6 @@ This script needs to be run for each population. A text file with a list of bam 
 We utilized the reference genome for both -ref and -anc because an ancestral genome was not available. 
 
 sbatch saf_beagle_maf.sbatch <directory with your bam files>
-
-Output files:
-Malampaya Historical: abol_sites_notrans.beagle.gz, abol_sites_notrans.saf.gz, abol_sites_notrans.saf.idx, abol_sites_notrans.mafs.gz
-Malampaya Contemporary: cbol_sites_notrans.beagle.gz, cbol_sites_notrans.saf.gz, cbol_sites_notrans.saf.idx, cbol_sites_notrans.mafs.gz
-Mantatao Island Historical: amta_sites_notrans.beagle.gz, amta_sites_notrans.saf.gz, amta_sites_notrans.saf.idx, amta_sites_notrans.mafs.gz
-Mantatao Island Contemporary: cmta_sites_notrans.beagle.gz, cmta_sites_notrans.saf.gz, cmta_sites_notrans.saf.idx, cmta_sites_notrans.mafs.gz
 
 The .saf.idx files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
 The .mafs.gz files are used in the selection.R script to run selection scans.
@@ -451,12 +444,6 @@ sbatch thetastat.sbatch <directory where your thetas.idx file is>
 
 The output .thetas.idx.pestPG file is used for statistical analysis in the geneticdiversity.R script. Since we are using a folded SFS (unknown ancestral state), we are able to generate Watterson's theta (thetaW), nucleotide diversity (thetaD), and Tajima's D. 
 
-The output files for this step are also on this repository:
-Malampaya Historical: abol_notrans.thetas.idx.pestPG
-Malampaya Contemporary: cbol_notrans.thetas.idx.pestPG
-Mantatao Island Historical: amta_notrans.thetas.idx.pestPG
-Mantatao Island Contemporary: cmta_notrans.thetas.idx.pestPG
-
 
 ## Calculate pairwise Fst 
 
@@ -478,8 +465,7 @@ SNPs with a false detection rate (FDR) less than 0.05 were considered to be unde
 
 A list of all SNPs with the selection candidates excluded (i.e. putatively neutral SNPs) is compiled at the end of the selection.R script. ~1.3 million SNPs are on this neutral list.
 This neutral SNP list is then used to run all downstream analyses in ANGSD to evaluate how selection may have impacted genetic diversity and population structure results. 
-See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and 
-the 1.3 million neutral SNP output files. 
+See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and the 1.3 million neutral SNP output files. 
 
 ## Generating PCA plots using the pca.R and pca_neutral.R scripts
 
