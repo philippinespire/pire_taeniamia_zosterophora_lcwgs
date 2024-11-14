@@ -3,12 +3,18 @@ Repository for bioinformatics and analysis of historical and contemporary low-co
 
 This repository provides the code for the paper: Preservation of genetic diversity and selection over a century in a coral reef fish (Taeniamia zosteorphora) in the Philippines.
 
-Data uploading is currently in progress. As genomic data is too large to be stored on GitHub, sequence data will be uploaded to the NCBI SRA and metadata to GEOME-DB.
-Links to data and metadata will be posted here as soon as it is finished uploading.
+As genomic data is too large to be stored on GitHub, sequence data will be uploaded to the NCBI SRA and metadata to GEOME-DB.
 
 Metadata Links:
 Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)
 Mantatao Island: https://n2t.net/ark:/21547/FtY2 (Historical) and https://n2t.net/ark:/21547/Fte2 (Contemporary)
+
+Sequence Data Links and NCBI BioProject Numbers:
+
+Malampaya Historical: PRJNA1185294 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185294)
+Malampaya Contemporary: PRJNA1185280 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185280)
+Mantatao Island Historical: PRJNA1185271 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185271)
+Mantatao Island Contemporary: PRJNA1185264 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185264)
 
 The genome assembly used for mapping is available on FigShare: 10.6084/m9.figshare.27682767. It can also be found by searching "Taeniamia zosterophora Genome Assembly" on figshare.com. The assembly will be uploaded to NCBI upon acceptance of the publication.
 
