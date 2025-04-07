@@ -401,7 +401,7 @@ sbatch get_beagle.sbatch <directory where your bam files are stored>
 
 Output: angsd_depth1_15_notrans.beagle.gz
 
-Output run on neutral SNP list: 
+Output run on neutral SNP list: angsd_allpop_neutral_alloutputs.beagle.gz
 
 ## PCANGSD- PCA and Admixture analyses 
 
@@ -426,9 +426,11 @@ sbatch saf_beagle_maf.sbatch <directory with your bam files>
 
 The .saf.idx files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
 The saf outputs are: abol_sites_notrans.saf.idx, amta_sites_notrans.saf.idx, cbol_sites_notrans.saf.idx, cmta_sites_notrans.saf.idx
+The saf outputs run on the neutral SNP list are: abol_neutral_notrans.saf.idx, amta_neutral_notrans.saf.idx, cbol_neutral_notrans.saf.idx, cmta_neutral_notrans.saf.idx
 
 The .mafs.gz files are used in the selection.R script to run selection scans.
 The maf outputs are: abol_sites_notrans.mafs.gz, amta_sites_notrans.mafs.gz, cbol_sites_notrans.mafs.gz, cmta_sites_notrans.mafs.gz 
+The maf outputs run on the neutral SNP list are: abol_neutral_notrans.mafs.gz, amta_neutral_notrans.mafs.gz, cbol_neutral_notrans.mafs.gz, cmta_neutral_notrans.mafs.gz
 
 ## Generate the site frequency spectrum (SFS) for each population.
 Generated a folded SFS because we did not have a known ancestral state genome.
