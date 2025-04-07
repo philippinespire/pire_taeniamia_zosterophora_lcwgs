@@ -391,7 +391,7 @@ Transitions were excluded in all subsequent analyses.
 
 sbatch snp_calling.sbatch <directory where your bam files are stored>
 
-Yielded a list of ~1.78 million SNPs. 
+Yielded a list of ~1.78 million SNPs. Outputs: global_snp_list_depth1_15_notrans.txt and global_snp_list_depth1_15_notrans.chrs
 
 ## Get genotype likelihoods and generate a BEAGLE file for all populations.
 
@@ -399,7 +399,9 @@ Beagle file for all populations will be used for population structure (PCANGSD).
 
 sbatch get_beagle.sbatch <directory where your bam files are stored>
 
+Output: angsd_depth1_15_notrans.beagle.gz
 
+Output run on neutral SNP list: 
 
 ## PCANGSD- PCA and Admixture analyses 
 
@@ -423,7 +425,10 @@ We utilized the reference genome for both -ref and -anc because an ancestral gen
 sbatch saf_beagle_maf.sbatch <directory with your bam files>
 
 The .saf.idx files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
+The saf outputs are: abol_sites_notrans.saf.idx, amta_sites_notrans.saf.idx, cbol_sites_notrans.saf.idx, cmta_sites_notrans.saf.idx
+
 The .mafs.gz files are used in the selection.R script to run selection scans.
+The maf outputs are: abol_sites_notrans.mafs.gz, amta_sites_notrans.mafs.gz, cbol_sites_notrans.mafs.gz, cmta_sites_notrans.mafs.gz 
 
 ## Generate the site frequency spectrum (SFS) for each population.
 Generated a folded SFS because we did not have a known ancestral state genome.
@@ -472,6 +477,8 @@ SNPs with a false detection rate (FDR) less than 0.05 were considered to be unde
 A list of all SNPs with the selection candidates excluded (i.e. putatively neutral SNPs) is compiled at the end of the selection.R script. ~1.3 million SNPs are on this neutral list.
 This neutral SNP list is then used to run all downstream analyses in ANGSD to evaluate how selection may have impacted genetic diversity and population structure results. 
 See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and the 1.3 million neutral SNP output files. 
+
+Neutral SNP list output: global_snp_list_neutral.txt
 
 ## Generating PCA plots using the pca.R and pca_neutral.R scripts
 
