@@ -391,7 +391,7 @@ Transitions were excluded in all subsequent analyses.
 
 sbatch snp_calling.sbatch <directory where your bam files are stored>
 
-Yielded a list of ~1.78 million SNPs. Outputs: global_snp_list_depth1_15_notrans.txt and global_snp_list_depth1_15_notrans.chrs
+Yielded a list of ~1.78 million SNPs. 
 
 ## Get genotype likelihoods and generate a BEAGLE file for all populations.
 
@@ -480,7 +480,6 @@ A list of all SNPs with the selection candidates excluded (i.e. putatively neutr
 This neutral SNP list is then used to run all downstream analyses in ANGSD to evaluate how selection may have impacted genetic diversity and population structure results. 
 See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and the 1.3 million neutral SNP output files. 
 
-Neutral SNP list output: global_snp_list_neutral.txt
 
 ## Generating PCA plots using the pca.R and pca_neutral.R scripts
 
