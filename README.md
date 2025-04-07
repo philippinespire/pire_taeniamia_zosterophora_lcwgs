@@ -409,11 +409,15 @@ Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most
 
 PCA: sbatch pcangsd_pca.sbatch <directory where your Beagle file is stored>
 
-Output: ".cov" matrix is used to generate a PCA plot in the pca.R script.
+Output: ".cov" matrix is used to generate a PCA plot in the pca.R script. 
+Output for all SNPs: angsd_notrans_snps_pca.cov 
+Ouput for neutral SNPs: angsd_allpop_neutral_pca.cov
 
 Admixture: sbatch pcangsd_admix.sbatch <directory where your Beagle file is stored>
 
 Output: ".Q" files for K=2-5 are used to generate admixture plots in the admixture.R script.
+Output for all SNPs and K=2: angsd_admix_notrans.admix.2.Q
+Output for neutral SNPs and K=2: angsd_allpop_neutral_default.admix.2.Q
 
 
 ## Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
