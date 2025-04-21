@@ -24,6 +24,8 @@ The README is separated into 4 main sections:
  3) Downstream analysis using ANGSD
  4) Statistical analysis in R
 
+Downstream analysis using ANGSD and Statistical analysis in R used scripts that can be found in the Scripts directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/Scripts), and select intermediate files can be found in the Files directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/Files). 
+
 Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.  
 Statistical analysis was run using R v.4.4.1 on a MacBook Pro (Apple M3 Pro Chip with 36 GB memory)
 
@@ -205,6 +207,8 @@ Using the same reference genome as used for Tzo CSSL work (https://github.com/ph
 quast n50, and filtered by species in Rstudio. The best genome to map for Tzo is Tzo_scaffolds_TzC0402G_contam_R1R2_noIsolate.fasta in 
 /home/e1garcia/shotgun_PIRE/pire_ssl_data_processing/taeniamia_zosterophora/probe_design.
 
+If not using Wahab, the genome assembly can be found on FigShare: 10.6084/m9.figshare.27682767.
+
 Moving the reference genome to my working directory:
 
 mkdir refGenome
@@ -346,7 +350,6 @@ min_gerp: 0
 
 max_gerp: 1000
 
-
 ## Prepare historical and modern config files
 Prepared historical and modern config files in Google Sheets
 
@@ -361,7 +364,6 @@ Replace with: type in one space
 Search mode: Extended  
 Click “Replace All”  
 Save file as a “.txt” and transfer to Wahab  
-
 
 ## Run
 
@@ -381,13 +383,15 @@ Downstream analysis was run using ANGSD v. 0.940.
 
 Scripts are adapted from Nina Therkildsen's lab's genomic-data-analysis repository (https://github.com/therkildsen-lab/genomic-data-analysis).
 
+Scripts are found in the Scripts directory and intermediate files in the Files directory unless otherwise noted.
+
 ## Start by identifying a list of SNPs for further analysis.
 
 This SNP list was generated to ensure that analyses are run on the same loci across all 4 populations.
 
 Unless otherwise noted, this list of SNPs was used for all subsequent analyses.
 
-Filters used to generate a list of SNPs: minimum depth filters that corresponded to 1x per individual, maximum depth filters corresponding to 15x per individual, a minimum individual filter of 50% of the total number of individuals (111), a map quality filter of 30, a minimum allele frequency filter of 0.001, and a SNP p-value of 10-6.
+Filters used to generate a list of SNPs: minimum depth filters that corresponded to 1x per individual, maximum depth filters corresponding to 15x per individual, a minimum individual filter of 50% of the total number of individuals (111), a map quality filter of 30, a minimum allele frequency filter of 0.001, and a SNP p-value of 0.000001.
 
 Transitions were excluded in all subsequent analyses.
 
@@ -411,18 +415,18 @@ Running PCANGSD for PCA and Admixture analysis. The MAP test yielded K=2 as most
 
 PCA: sbatch pcangsd_pca.sbatch <directory where your Beagle file is stored>
 
-Output: ".cov" matrix is used to generate a PCA plot in the pca.R script. 
-Output for all SNPs: angsd_notrans_snps_pca.cov 
-Ouput for neutral SNPs: angsd_allpop_neutral_pca.cov
+Output: ".cov" matrix is used to generate a PCA plot in the pca.R script.  
+Output for all SNPs: angsd_notrans_snps_pca.cov  
+Ouput for neutral SNPs: angsd_allpop_neutral_pca.cov  
 
 Admixture: sbatch pcangsd_admix.sbatch <directory where your Beagle file is stored>
 
-Output: ".Q" files for K=2-5 are used to generate admixture plots in the admixture.R script.
-Output for all SNPs and K=2: angsd_admix_notrans.admix.2.Q
-Output for neutral SNPs and K=2: angsd_allpop_neutral_default.admix.2.Q
+Output: ".Q" files for K=2-5 are used to generate admixture plots in the admixture.R script.  
+Output for all SNPs and K=2: angsd_admix_notrans.admix.2.Q  
+Output for neutral SNPs and K=2: angsd_allpop_neutral_default.admix.2.Q  
 
+## Get genotype likelihoods, site allele frequencies, and minor allele frequencies for each population. 
 
-## Get genotype likelihoods, site allele frequencies, and minor allele frequecies for each population. 
 Site allele frequencies (.saf) files are needed to calculate the SFS and genetic diversity metrics.
 
 This script needs to be run for each population. A text file with a list of bam files for each population is needed in each script.
@@ -431,11 +435,15 @@ We utilized the reference genome for both -ref and -anc because an ancestral gen
 sbatch saf_beagle_maf.sbatch <directory with your bam files>
 
 The .saf.idx files are used in the next step to generate a folded SFS for each population. They are also used in pairwise Fst calculations.
+
 The saf outputs are: abol_sites_notrans.saf.idx, amta_sites_notrans.saf.idx, cbol_sites_notrans.saf.idx, cmta_sites_notrans.saf.idx
+
 The saf outputs run on the neutral SNP list are: abol_neutral_notrans.saf.idx, amta_neutral_notrans.saf.idx, cbol_neutral_notrans.saf.idx, cmta_neutral_notrans.saf.idx
 
 The .mafs.gz files are used in the selection.R script to run selection scans.
+
 The maf outputs are: abol_sites_notrans.mafs.gz, amta_sites_notrans.mafs.gz, cbol_sites_notrans.mafs.gz, cmta_sites_notrans.mafs.gz 
+
 The maf outputs run on the neutral SNP list are: abol_neutral_notrans.mafs.gz, amta_neutral_notrans.mafs.gz, cbol_neutral_notrans.mafs.gz, cmta_neutral_notrans.mafs.gz
 
 ## Generate the site frequency spectrum (SFS) for each population.
@@ -474,7 +482,7 @@ sbatch fst.sbatch <directory where the .saf.idx files are>
 Unweighted and weighted Fst estimates are generated. We reported weighted estimates in our manuscript.
 
 
-# Statistical Analysis in R
+# 4. Statistical Analysis in R
 
 ## Identifying selection using the selection.R script 
 
@@ -486,6 +494,7 @@ A list of all SNPs with the selection candidates excluded (i.e. putatively neutr
 This neutral SNP list is then used to run all downstream analyses in ANGSD to evaluate how selection may have impacted genetic diversity and population structure results. 
 See the "Downstream analysis in ANGSD" section of the README to run these analyses. The following statistical analyses in R are run for both the 1.78 million SNP output files and the 1.3 million neutral SNP output files. 
 
+Scripts are found in the Scripts directory and intermediate files in the Files directory unless otherwise noted.
 
 ## Generating PCA plots using the pca.R and pca_neutral.R scripts
 
@@ -499,15 +508,19 @@ Utilizing the ".Q" proportion outputs from PCANGSD as the input. admixture.R uti
 ## Estimating effective population size (Ne) using Ne_estimation.R and Ne_estimation_neutral.R
 
 Using the .mafs.gz outputs from the "saf_beagle_maf.sbatch" ANGSD script. 
+
 Code developed from Jorde & Ryman 2007 and the NeEstimator manual v.2.1
 
 Ne_estimation.R is used to generate Ne estimates for the adapted CMH and adapted Chi-squared selection scan tests. 
+
 Ne_estimation_neutral.R is used to generate Ne estimates from the 1.3 million neutral SNPs. These estimates are reported in our manuscript. 
 
 ## Analyzing changes in genetic diversity: Watterson's theta, nucleotide diversity (pi), and Tajima's D using the geneticdiversity.R and geneticdiversity_neutral.R scripts. 
 
 Using the .thetas.idx.pestPG outputs from ANGSD.
+
 Watterson's theta and nucleotide diversity were originally plotted against sequencing depth (mean depth per individual) to evaluate any depth based correlations that may be biasing results. 
+
 This analysis identified that genetic diversity was sensitive to sequencing depth below 3x or above 6x (Figures S1-S2); we therefore restricted analyses on genetic diversity metrics to the 2,291 contigs with 3-6x depth. The following statistical analyses for all three metrics were run on this 3-6x depth range (452,496 SNPs). 
 
 
