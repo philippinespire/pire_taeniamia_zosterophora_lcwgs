@@ -16,7 +16,7 @@ Malampaya Contemporary: PRJNA1185280 (https://www.ncbi.nlm.nih.gov/bioproject/PR
 Mantatao Island Historical: PRJNA1185271 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185271)  
 Mantatao Island Contemporary: PRJNA1185264 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185264)
 
-The genome assembly used for mapping is available on FigShare: 10.6084/m9.figshare.27682767. It can also be found by searching "Taeniamia zosterophora Genome Assembly" on figshare.com. The assembly will be uploaded to NCBI upon acceptance of the publication.
+The genome assembly used for mapping is available on FigShare: 10.6084/m9.figshare.27682767.
 
 The code for analysis is separated into 4 main sections:
  1) Pre-processing of sequence data following the pire_fq_gz_processing repository (https://github.com/philippinespire/pire_fq_gz_processing)
@@ -24,7 +24,7 @@ The code for analysis is separated into 4 main sections:
  3) Downstream analysis using ANGSD
  4) Statistical analysis in R
 
-Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.
+Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.  
 Statistical analysis was run using R v.4.4.1 on a MacBook Pro (Apple M3 Pro Chip with 36 GB memory)
 
 # Pre-processing
@@ -32,9 +32,9 @@ Following the pire_fq_gz_processing repo (https://github.com/philippinespire/pir
 
 Files were already downloaded, and the decode file looks fine, so moving to Step 5: renaming
 
-# 5. Perform a renaming dry-run
-   Run renameFQGZ_keeplane.bash to view the original and new file names and create tsv files to store the original and new file naming conventions.
-   Need to use the keeplane script because each sample was sequenced across multiple lanes.
+## Perform a renaming dry-run
+Run renameFQGZ_keeplane.bash to view the original and new file names and create tsv files to store the original and new file naming conventions.
+Need to use the keeplane script because each sample was sequenced across multiple lanes.
  
 log into a compute node interactively so this goes faster
 salloc
@@ -44,12 +44,11 @@ bash /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/renameFQGZ_keeplane.bash 
 
 Dry run looks okay, so will proceed to renaming for real.
 
-# 6. Rename the files for real
+## Rename the files for real
 bash /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/renameFQGZ_keeplane.bash Tzo-LCWGS-FullSeq-SequenceNameDecode.tsv rename
 
-#you will need to say y 2X
 
-# 7. Check quality of the data with fastqc
+## Check quality of the data with fastqc
 
 Run fastqc and multiqc with the Multi_FASTQC.sh script 
 
@@ -64,7 +63,7 @@ Potential issues:
   * number of reads - 
 	* Alb: 0.5-20 mil, Contemp: 0.5-20 mil
 
-# 8. First trim
+## First trim
 
 Execute runFASTP_1st_trim.sbatch (0.5-3 hours run time)
 
@@ -83,14 +82,13 @@ Potential issues:
   * number of reads - 
     * Alb: 11-4.5K mil, Contemp: 100-8K mil
 
-# 9. Remove duplicates with clumpify
+## Remove duplicates with clumpify
 
 Execute runCLUMPIFY_r1r2_array.bash (0.5-3 hours run time)**
 
 runCLUMPIFY_r1r2_array.bash is a bash script that executes several sbatch jobs to de-duplicate and clumpify your fq.gz files. It does two things:
-
-    Removes duplicate reads.
-    Re-orders each fq.gz file so that similar sequences (reads) appear closer together. This helps with file compression and speeds up downstream steps.
+Removes duplicate reads.
+Re-orders each fq.gz file so that similar sequences (reads) appear closer together. This helps with file compression and speeds up downstream steps.
 
 You will need to specify the number of nodes you wish to allocate your jobs to. The max # of nodes to use at once should not exceed the number of pairs of r1-r2 files to be processed. (Ex: If you have 3 pairs of r1-r2 files, you should only use 3 nodes at most.) If you have many sets of files (likely to occur if you are processing capture data), you might also limit the nodes to the current number of idle nodes to avoid waiting on the queue (run sinfo to find out # of nodes idle in the main partition)
 
@@ -104,7 +102,7 @@ sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/Multi_FASTQC.sh "fq_fp1
 
 Results look good, duplication rate is low now
 
-# 10. Second trim
+## Second trim
 
 Run runFASTP_2_cssl.sbatch script
 
@@ -131,7 +129,7 @@ Alb: 0.1-25 mil, Contemp: 0.1-50 mil
 
 Overall seems good to move onto decontamination.
 
-# 11. Decontamination
+## Decontamination
 
 Run runFQSCRN_6.bash script (had to adjust script to run with 20 threads/node because otherwise only 12 jobs could run at a time)
 
@@ -182,7 +180,7 @@ Since samples were sequenced across lanes, no individuals have been lost at this
 
 MultiQC with the re-paired files:
 
-#sbatch Multi_FASTQC.sh "<indir>" "<output report name>" "<file extension>"
+sbatch Multi_FASTQC.sh "<indir>" "<output report name>" "<file extension>"
 sbatch /home/e1garcia/shotgun_PIRE/pire_fq_gz_processing/Multi_FASTQC.sh "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/fq_fp1_clmp_fp2_fqscrn_rprd" "fqc_rprd_report" "fq.gz"
 
 MultiQC results look good. Duplication remains low and GC content seems appropriate for a fish species. Some reads are shorter than others but that is to be expected with historical DNA.
@@ -201,7 +199,7 @@ Alb: 0.5-14 mil, Contemp: 0.5-15 mil
 
 # Moving to the pire_lcwgs_data_processing pipeline (https://github.com/philippinespire/pire_lcwgs_data_processing) to curate the reference genome assembly for mapping with the GenErode pipeline
 
-# 2 & 3 Get and curate the reference genome
+## 2 & 3 Get and curate the reference genome
 
 Using the same reference genome as used for Tzo CSSL work (https://github.com/philippinespire/pire_taeniamia_zosterophora_cssl). From the Tzo CSSL README: Found the best genome by running wrangleData.R, sorted tibble by busco single copy complete,
 quast n50, and filtered by species in Rstudio. The best genome to map for Tzo is Tzo_scaffolds_TzC0402G_contam_R1R2_noIsolate.fasta in 
