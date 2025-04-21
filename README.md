@@ -6,14 +6,14 @@ This repository provides the code for the paper: Preservation of genetic diversi
 As genomic data is too large to be stored on GitHub, sequence data will be uploaded to the NCBI SRA and metadata to GEOME-DB.
 
 Metadata Links:
-Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)
+Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)  
 Mantatao Island: https://n2t.net/ark:/21547/FtY2 (Historical) and https://n2t.net/ark:/21547/Fte2 (Contemporary)
 
 Sequence Data Links and NCBI BioProject Numbers:
 
-Malampaya Historical: PRJNA1185294 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185294)
-Malampaya Contemporary: PRJNA1185280 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185280)
-Mantatao Island Historical: PRJNA1185271 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185271)
+Malampaya Historical: PRJNA1185294 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185294)  
+Malampaya Contemporary: PRJNA1185280 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185280)  
+Mantatao Island Historical: PRJNA1185271 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185271)  
 Mantatao Island Contemporary: PRJNA1185264 (https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1185264)
 
 The genome assembly used for mapping is available on FigShare: 10.6084/m9.figshare.27682767. It can also be found by searching "Taeniamia zosterophora Genome Assembly" on figshare.com. The assembly will be uploaded to NCBI upon acceptance of the publication.
