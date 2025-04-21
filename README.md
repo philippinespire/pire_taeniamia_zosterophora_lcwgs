@@ -377,7 +377,7 @@ sbatch run_GenErode.sbatch
 
 Need GenErode to run until it generates realigned and rescaled bam files (modern files will only be realigned). These bam files will be used as the input for ANGSD.
 
-# 3. Downstream analysis with ANGSD
+# 3. Downstream analysis using ANGSD
 
 Downstream analysis was run using ANGSD v. 0.940. 
 
