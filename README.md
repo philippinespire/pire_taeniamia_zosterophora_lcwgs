@@ -24,7 +24,7 @@ The README is separated into 4 main sections:
  3) Downstream analysis using ANGSD
  4) Statistical analysis in R
 
-Downstream analysis using ANGSD and Statistical analysis in R used scripts that can be found in the Scripts directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/Scripts), and select intermediate files can be found in the Files directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/Files). 
+Downstream analysis using ANGSD and Statistical analysis in R used scripts that can be found in the Scripts directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/Scripts), and select intermediate files can be found in the Files directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/Files). 
 
 Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.  
 Statistical analysis was run using R v.4.4.1 on a MacBook Pro (Apple M3 Pro Chip with 36 GB memory)
