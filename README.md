@@ -24,6 +24,10 @@ The README is separated into 4 main sections:
  3) Downstream analysis using ANGSD
  4) Statistical analysis in R
 
+Intermediate outputs for pre-processing data steps are found in the 1st_sequencing_run and 2nd_sequencing_run directories (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/1st_sequencing_run and https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/2nd_sequencing_run).
+
+Config files and scripts for mapping using the GenErode pipeline are found in the 2nd_sequencing_run/GenErode_20k_2runs_2 directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/2nd_sequencing_run/GenErode_20k_2runs_2).
+
 Downstream analysis using ANGSD and Statistical analysis in R used scripts that can be found in the Scripts directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/Scripts), and select intermediate files can be found in the Files directory (https://github.com/philippinespire/pire_taeniamia_zosterophora_lcwgs/tree/main/Files). 
 
 Pre-processing, mapping, and downstream analysis were run using Wahab, Old Dominion University's high performance computing system.  
