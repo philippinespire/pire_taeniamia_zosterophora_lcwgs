@@ -253,7 +253,7 @@ cp /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/1st_sequencing_r
 
 Delete any .fq.gz files that have no reads left (re-pair output file would have listed these as errors). Files with no reads will cause GenErode to fail.
 
-Subset reference genome to scaffold with 20K bases and above:
+Subset reference genome to scaffold with 20K bases and above:  
 README and script for removing small scaffolds is in the PSMC REU repo: https://github.com/philippinespire/REUs/tree/master/2022_REU/PSMC  
 perl removesmalls.pl 20000 /archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/refGenome/reference.ssl.Tzo-C-0402G-R1R2-contam-noisolate.fasta > reference.denovoSSL.Tzo20k.fasta
 
@@ -294,6 +294,7 @@ Changes made to the config.yaml file:
 ref_path: "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/GenErode_20k_2runs_2/reference/reference.denovoSSL.Tzo20k.fasta"
 
 historical_samples: "config/tzo_historical_samples_2runs.txt" # leave empty ("") if not run for historical samples.  
+
 modern_samples: "config/tzo_modern_samples_2runs.txt" # leave empty ("") if not run for modern samples. 
 
 fastq_processing: False
@@ -310,20 +311,25 @@ Plink parameters:
 
 Minimum SNP count. For example, 10, 25. Abbreviation in file name: homsnp.
 homozyg-snp: 25  
+
 Minimum size of ROH in kilobases. Abbreviation in file name: homkb.
 homozyg-kb: 100  
+
 Window size for ROH estimation. For example, 20, 50, 100, 1000. 
 Abbreviation in file name: homwinsnp.
 homozyg-window-snp: 250   
+
 Maximum number of heterozygote sites per window. 
 For example, 1 for a stringent analysis, 3 for a relaxed setting. 
 Abbreviation in file name: homwinhet.
 homozyg-window-het: 3  
+
 Maximum number of missing sites per window. 
 For example, 1 or 5 for a stringent analysis, 
 10 for intermediate filtering and 15 for relaxed filtering. 
 Abbreviation in file name: homwinmis.
 homozyg-window-missing: 15  
+
 Maximum number of heterozygote sites per ROH. 
 For example, 1 for a stringent analysis, 
 3 as a relaxed setting. Disable this parameter by setting it to 999. 
@@ -337,6 +343,7 @@ gerp_ref_path: "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd
 tree: "/archive/carpenterlab/pire/pire_taeniamia_zosterophora_lcwgs/2nd_sequencing_run/GenErode_20k_2runs_2/Tzo_outgroup_list.nwk"
 
 min_gerp: 0  
+
 max_gerp: 1000
 
 
