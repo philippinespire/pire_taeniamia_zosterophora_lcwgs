@@ -399,9 +399,9 @@ Beagle file for all populations will be used for population structure (PCANGSD).
 
 sbatch get_beagle.sbatch <directory where your bam files are stored>
 
-Output: angsd_depth1_15_notrans.beagle.gz
+Output: angsd_depth1_15_notrans.beagle.gz (found at 10.6084/m9.figshare.28832192 due to large file size)
 
-Output run on neutral SNP list: angsd_allpop_neutral_alloutputs.beagle.gz
+Output run on neutral SNP list: angsd_allpop_neutral_alloutputs.beagle.gz (found at 10.6084/m9.figshare.28832192 due to large file size)
 
 ## PCANGSD- PCA and Admixture analyses 
 
