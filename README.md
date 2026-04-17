@@ -1,9 +1,10 @@
 # pire_taeniamia_zosterophora_lcwgs
-Repository for bioinformatics and analysis of historical and contemporary low-coverage whole genome sequencing data of Taeniamia zosterophora collected in the Philippines.
+Repository for bioinformatics and analysis of historical and contemporary low-coverage whole genome sequencing data of _Taeniamia zosterophora_ collected in the Philippines.
 
-This repository provides the code for the paper: Preservation of genetic diversity and selection over a century in a coral reef fish (Taeniamia zosteorphora) in the Philippines.
+This repository provides the code for the paper:  
+Fitz KS, Abesamis RA, Baldisimo JGP, Bucol AA, Clark RD, Garcia E, Lopez IR, Magnuson SF, Malabag MJ, Muallil RN, Parenti LR, Reid BR, Santos MD, Bird CE, Carpenter KE, Pinsky ML (2026) Preservation of Genetic Diversity and Selection over a Century in a Coral Reef Fish (_Taeniamia zosterophora_) in the Philippines. __The American Naturalist__, 207(1):196–213. https://doi.org/10.1086/738468
 
-As genomic data is too large to be stored on GitHub, sequence data will be uploaded to the NCBI SRA and metadata to GEOME-DB.
+As genomic data is too large to be stored on GitHub, sequence data were uploaded to the NCBI SRA and metadata to GEOME-DB.
 
 Metadata Links:
 Malampaya: https://n2t.net/ark:/21547/FtD2 (Historical) and https://n2t.net/ark:/21547/FtS2 (Contemporary)  
